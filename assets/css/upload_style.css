@@ -1,0 +1,43 @@
+
+
+.picker {
+    background-color: #eee;
+    padding: 1em;
+}
+
+#listing {
+    padding-left: 0rem;
+}
+
+#listing li {
+    padding-left: 0;
+}
+
+#box {
+    color: #005aa0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#myProgress {
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+#myBar {
+    width: 1%;
+    height: 30px;
+    /* background-color: #4CAF50; */
+    background-color: #0b994b;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* #loader {
+    display: none;
+    visibility: hidden;
+} */

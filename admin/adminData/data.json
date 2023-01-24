@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "text": "SALE DIVISION",
+        "bizagi_folder": "bizagi_folder_name",
+        "clickeable": false,
+        "items": [
+            {
+                "id": "1_1",
+                "text": "B2B",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": []
+            },
+            {
+                "id": "1_2",
+                "text": "B2C",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "text": "TECHNICAL DIVISION..!!",
+        "bizagi_folder": "bizagi_folder_name",
+        "clickeable": false,
+        "items": [
+            {
+                "id": "2_1",
+                "text": "Network Operations",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "2_1_1",
+                        "text": "Operational Request Process",
+                        "bizagi_folder": "bizagiFolder",
+                        "clickeable": false,
+                        "items": [],
+                        "pdf_file": ""
+                    },
+                    {
+                        "id": "2_1_2",
+                        "text": "Problem Management",
+                        "bizagi_folder": "bizagiFolder",
+                        "clickeable": false,
+                        "items": [],
+                        "pdf_file": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "text": "CUSTOMER DIVISION",
+        "bizagi_folder": "bizagi_folder_name",
+        "clickeable": false,
+        "items": []
+    },
+    {
+        "id": 4,
+        "text": "ENTERPRISE MANAGEMENT DIVISION",
+        "bizagi_folder": "bizagi_folder_name",
+        "clickeable": false,
+        "items": [
+            {
+                "id": "4_1",
+                "text": "Strategy",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": []
+            },
+            {
+                "id": "4_2",
+                "text": "Human Resources",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "4_2_1",
+                        "text": "Esto es un proceso",
+                        "bizagi_folder": "bizagiFolder",
+                        "clickeable": false,
+                        "pdf_file": "pdf_not_found.pdf",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "id": "4_3",
+                "text": "Legal",
+                "bizagi_folder": "bizagiFolder",
+                "clickeable": false,
+                "items": []
+            }
+        ]
+    }
+]

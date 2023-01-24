@@ -1,0 +1,13 @@
+#bizagi_viewer_box{
+    /* border: 1px solid #0d6efd; */
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+#bizagi_viewer{
+    width: 100%;
+    position: relative;
+    /* left: -20%; */
+}

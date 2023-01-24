@@ -1,0 +1,8 @@
+
+.tmp
+log.txt
+errors.log
+data_backup.json
+
+# admin
+# dataFolder

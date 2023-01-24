@@ -1,0 +1,95 @@
+* {
+    font-family: 'Arial';
+    font-style: normal;
+}
+
+/* Navbar */
+.navbar{
+    background-color: #FFED00;
+}
+
+#sidebarMenu{
+    background: radial-gradient(50% 330.61% at 0% 100%, #00A5B1 0%, #007687 100%);
+    min-height: 92vh;
+}
+/* End navbar */
+
+
+.my_btn{
+    border-color: #057689;
+    background-color: #057689;
+    color: #fff;   
+}
+
+.my_btn:hover, .my_btn:after{
+    border-color: #057689;
+    background-color: white;
+    color: #057689;
+}
+
+#process_name{
+    color: #333;
+    font-weight: bold;
+}
+
+
+/* Treeview */
+.dx-treeview-search{
+    border-radius: 55px !important;
+}
+
+
+#treeview {
+    color: #ffffff;
+    font-family: 'Arial' !important;
+    font-weight: 700 !important;
+    color: #007687 !important;
+}
+
+.dx-texteditor-container{
+    border: 1px dashed rgb(167, 167, 167);
+    border-radius: 25px;
+    background-color: initial;
+}
+
+.dx-item.dx-treeview-item{    
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dx-state-focused>.dx-item.dx-treeview-item{
+    background-color: #FFED00;
+    color: #4F4F4F;
+    font-style: normal !important;
+    font-weight: 400;
+}
+    
+.dx-treeview-node-container-opened {
+    border-left: .5px dashed white;
+}
+/* End treeview */
+
+/* main content */
+#excel_viewer,#pdf_viewer{
+    height: 83vh;
+}
+
+
+/* end main content */
+
+/* Modal login */
+#modal_login{
+    font-size: 13px !important;
+
+}
+
+
+#no_pdf_viewer{
+    background-color: #F7FAFD;
+    border: 1px dashed #007687;
+    
+}
