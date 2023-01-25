@@ -178,6 +178,43 @@ class Master
     }
 
     /**
+     * Destroy record from JSON
+     */
+    function delete_attached_file($id, $file_id)
+    {
+        $data = file_get_contents($this->data_file);
+        $json_arr = json_decode($data, true);
+        $ids = explode("_", $id);
+
+        
+
+        foreach($json_arr as $key => $value){
+            if( $value['id'] == $ids[0] ){
+                foreach($value['items'] as $k => $items){
+                    if ($items['id'] == $ids[0]."_".$ids[1]){
+                        foreach($items['items'] as $k3 => $item3){
+                            if ($item3['id'] == $id){
+                                foreach($item3['attachment_files'] as $k_at => $item_at){
+                                    if ($item_at['id'] == $file_id){
+
+                                        array_splice($json_arr[$key]['items'][$k]['items'][$k3]['attachment_files'], $k_at, 1); 
+        
+                                        $json = json_encode(($json_arr), JSON_PRETTY_PRINT);
+                                        file_put_contents($this->data_file, $json);
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    /**
      * Insert level into another level the JSON (LEVEL 2-3)
      */
     function insert_child($id, $title, $bizagi_folder, $clickeable = false )
@@ -217,7 +254,7 @@ class Master
                     if( $value['id'] == $ids[0] ){
                         foreach($value['items'] as $k => $value2){
                             if ($value2['id'] == $id){
-                                // Set new id
+                                // Set new id (INSERT NEW PROCESS)
                                 if ( count($value2['items']) > 0 ){
                                     $last_id = explode('_', end( $value2['items'] )['id']);
                                     $child_id = $id."_".(end($last_id) + 1);
@@ -228,8 +265,9 @@ class Master
                                     "id" => $child_id,
                                     "text" => $title,
                                     "bizagi_folder" => $bizagi_folder,
-                                    "clickeable" => $clickeable,
-                                    "items" => []
+                                    "clickeable" => true,
+                                    "items" => [],
+                                    "attachment_files" => []
                                 ];
                                 array_push($json_arr[$key]['items'][$k]['items'], $new_data);                                                            
                                 $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
@@ -240,6 +278,64 @@ class Master
             }
             break;
             
+        }
+
+
+    }
+
+
+    /**
+     * Insert level into another level the JSON (LEVEL 2-3)
+     */
+    function insert_attachment_files($id, $array_list )
+    {
+
+        $data = file_get_contents($this->data_file);
+        $json_arr = json_decode($data, true);
+        $ids = explode("_", $id);
+
+        foreach($json_arr as $key => $value){
+            if( $value['id'] == $ids[0] ){
+                
+                foreach($value['items'] as $k => $value2){
+                    if ($value2['id'] == ($ids[0]."_".$ids[1])){
+
+                        foreach($value2['items'] as $k3 => $value3){
+                            if ($value3['id'] == $id){
+
+                                foreach($array_list as $file_name){  
+                                    // Set new id (INSERT NEW ATTACH
+                                    if ( count($value2['items']) > 0 ){
+
+                                        $last_id = explode('_', end( $value3['attachment_files'] )['id']);
+
+                                        $child_id = $id."_".(end($last_id) + 1);
+                                    }else{
+                                        $child_id = $id."_1";
+                                    }  
+                                    
+                                
+                                    $new_data =  [
+                                        "attach_name" => $file_name,
+                                        "attach_file_name" => $file_name
+                                    ];
+                                    array_push($json_arr[$key]['items'][$k]['items'][$k3]['attachment_files'], $new_data);                                                            
+                                    $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                                    file_put_contents($this->data_file, $json);
+                                }
+                                
+                            }
+                            
+
+                        }
+                        
+
+
+                    }
+                }
+
+
+            }
         }
 
 

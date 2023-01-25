@@ -40,7 +40,6 @@
 
 
 #treeview {
-    color: #ffffff;
     font-family: 'Arial' !important;
     font-weight: 700 !important;
     color: #007687 !important;
@@ -59,18 +58,48 @@
     padding-left: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .dx-state-focused>.dx-item.dx-treeview-item{
     background-color: #FFED00;
     color: #4F4F4F;
     font-style: normal !important;
-    font-weight: 400;
 }
     
 .dx-treeview-node-container-opened {
     border-left: .5px dashed white;
 }
+
+[aria-level="1"] {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+[aria-level="2"] {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+[aria-level="3"] {
+    text-transform: capitalize;
+    color: #333;
+    font-size: 12px;
+}
+
+[aria-level="3"]>.dx-item:hover {
+    color: rgb(10, 99, 110);
+}
+
+.dx-empty-message{
+    color: white;
+    
+}
+
 /* End treeview */
 
 /* main content */
@@ -84,12 +113,15 @@
 /* Modal login */
 #modal_login{
     font-size: 13px !important;
-
 }
 
 
 #no_pdf_viewer{
     background-color: #F7FAFD;
     border: 1px dashed #007687;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }

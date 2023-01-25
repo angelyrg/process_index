@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "text": "Sale Division 2",
+        "text": "SALE DIVISION",
         "expanded": false,
         "items": [
             {
@@ -19,19 +19,19 @@
     },
     {
         "id": "2",
-        "text": "Technical Division",
+        "text": "TECHNICAL DIVISION",
         "expanded": false,
         "items": []
     },
     {
         "id": "3",
-        "text": "Infrastructure Division",
+        "text": "INFRASTRUCTURE DIVISION",
         "expanded": false,
         "items": []
     },
     {
         "id": "4",
-        "text": "Information Technology Division",
+        "text": "INFORMATION TECHNOLOGY DIVISION",
         "expanded": false,
         "items": [
             {
@@ -175,13 +175,13 @@
     },
     {
         "id": "5",
-        "text": "Customer Division",
+        "text": "CUSTOMER DIVISION",
         "expanded": false,
         "items": []
     },
     {
         "id": "6",
-        "text": "Enterprise Management Division",
+        "text": "ENTERPRISE MANAGEMENT DIVISION",
         "expanded": false,
         "items": [
             {
@@ -192,10 +192,11 @@
                     {
                         "id": "6_1_1",
                         "text": "test",
-                        "bizagi_folder": "New Process",
+                        "bizagi_folder": "Software outsource process__",
                         "clickeable": true,
                         "file_name": null,
-                        "items": []
+                        "items": [],
+                        "attachment_files": []
                     }
                 ]
             },
@@ -214,8 +215,9 @@
                         "id": "6_3_1",
                         "text": "HR Process receive employee",
                         "clickeable": true,
-                        "file_name": "Business_Process_Framework_eTOM_Poster_v21.5.pdf",
-                        "bizagi_folder": "New Process"
+                        "file_name": "ANNEX 04 - Guideline template.pdf",
+                        "bizagi_folder": "SimpleModel3",
+                        "attachment_files": []
                     }
                 ]
             },
@@ -241,6 +243,81 @@
                 "id": "6_7",
                 "text": "Legal",
                 "expanded": false,
+                "items": []
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "text": "Demo level",
+        "bizagi_folder": null,
+        "clickeable": false,
+        "items": [
+            {
+                "id": "7_1",
+                "text": "Another level",
+                "bizagi_folder": null,
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "7_1_1",
+                        "text": "Process Demo",
+                        "bizagi_folder": null,
+                        "clickeable": false,
+                        "items": [],
+                        "attachment_files": []
+                    },
+                    {
+                        "id": "7_1_2",
+                        "text": "Seccond process",
+                        "bizagi_folder": null,
+                        "clickeable": false,
+                        "items": [],
+                        "attachment_files": []
+                    }
+                ]
+            },
+            {
+                "id": "7_2",
+                "text": "Second level",
+                "bizagi_folder": null,
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "7_2_1",
+                        "text": "Peruvian food process",
+                        "bizagi_folder": "SimpleModel3",
+                        "clickeable": true,
+                        "file_name": "Bitel Aventuras - Game Client Architecture.pdf",
+                        "items": [],
+                        "attachment_files": [
+                            {
+                                "id": "at_7_2_1_1",
+                                "attach_name": "How to avoid potential errors when program_Guide.03.docx",
+                                "attach_file_name": "How to avoid potential errors when program_Guide.03.docx"
+                            },
+                            {
+                                "id": "at_7_2_1_2",
+                                "attach_name": "PROCESS LIST.xlsx",
+                                "attach_file_name": "PROCESS LIST.xlsx"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "7_2_2",
+                        "text": "tESTXD",
+                        "bizagi_folder": null,
+                        "clickeable": true,
+                        "items": [],
+                        "attachment_files": []
+                    }
+                ]
+            },
+            {
+                "id": "7_3",
+                "text": "Second level two",
+                "bizagi_folder": null,
+                "clickeable": false,
                 "items": []
             }
         ]

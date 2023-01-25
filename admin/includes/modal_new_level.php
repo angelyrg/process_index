@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New level</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="member-form" action="process.store.php" method="POST">
         <div class="modal-body">
@@ -17,8 +17,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-outline-primary">Save</button>
+          <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-outline-info rounded-pill">Save</button>
         </div>
       </form>
     </div>

@@ -10,6 +10,26 @@ if (isset($_POST['btn_save_changes'])) {
     $master->update_json_data($id, $title, null, null, null);
 }
 
+//Upload_attachment files
+if (isset($_POST['btn_save_attach'])) {
+    $targetfolder = "./../upload/attached/";
+    $total = count($_FILES['attach_file']['name']);
+    $filesuploaded = [];
+
+    // Loop through each file
+    for ($i = 0; $i < $total; $i++) {
+        $tmpFilePath = $_FILES['attach_file']['tmp_name'][$i];
+        if ($tmpFilePath != "") { //Make sure we have a file path
+            //Setup our new file path
+            $newFilePath = $targetfolder . $_FILES['attach_file']['name'][$i];
+            if (move_uploaded_file($tmpFilePath, $newFilePath)) {
+                array_push($filesuploaded, $_FILES['attach_file']['name'][$i]);
+            }
+        }
+    }
+    var_dump($master->insert_attachment_files($id, $filesuploaded));
+}
+
 if (isset($_POST['btn_upload_pdf'])) {
     $targetfolder = "./../upload/pdfs/";
     $targetfolder = $targetfolder . basename($_FILES['pdf_file']['name']);
@@ -25,4 +45,4 @@ if (isset($_POST['btn_upload_pdf'])) {
 
 
 
-header("Location: ./");
+//header("Location: ./");

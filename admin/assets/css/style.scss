@@ -1,14 +1,11 @@
 * {
-  font-family: 'Arial';
+  font-family: 'Arial' !important;
   // color: #6B7A99;
   font-style: normal;
   // font-weight: 700;
   line-height: 25px;
 }
 
-p{
-  font-family: 'Arial' !important;
-}
 /**
 NAVBAR
 */
@@ -104,10 +101,11 @@ MENU OPTIONS
   border-radius: 15epx;
 }
 
-// .btn-group :not(.collapsed) ~ .accordion-button{
-//   color: rgb(47, 47, 47);
-//   background-color: #FFED00;
-// }
+.accordion-button:not(.collapsed) {
+  color: #202020;
+}
+
+
 
 /**
  // END MENU OPTIONS

@@ -6,12 +6,11 @@
         <h5 class="modal-title" id="modalPDFUploading">New attachment file</h5>
         <button type="button" class="btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="process.update.php" method="POST" enctype="multipart/form-data">
+      <form action="process.update.php" method="POST" id="form_attach" enctype="multipart/form-data">
         <div class="modal-body">
-          <input type="hidden" name="process_id" id="process_id" value="" required >
+          <input type="text" name="process_id" id="process_id" value="" required >
           <div class="mb-3">
             <label for="pdf_file" class="form-label">Upload PDF file</label>
-            <!-- <input type="file" class="form-control rounded-pill" id="pdf_file" name="pdf_file" required accept=".pdf"> -->
             <input type="file" name="attach_file[]" id="attach_file" class="form-control rounded-pill" required multiple>
           </div>
         </div>

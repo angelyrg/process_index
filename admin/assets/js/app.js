@@ -53,8 +53,8 @@ function searchItem(full_id, data){
 
                             $("#process_title").text( values3.text );
                             $("#process_id").val( values3.id );
+                            $('[id=process_id]').val( values3.id );
                             $("#process_id_bizagi").val( values3.id );
-                            console.log(values3);
 
                             if(values3.bizagi_folder == null || values3.bizagi_folder == ""){
                               $("#link_bizagi_diagram").attr("href", "" );
@@ -64,17 +64,34 @@ function searchItem(full_id, data){
                               $("#link_bizagi_diagram").removeClass("d-none");
                              }
 
-                            if (values3.file_name == null && values3.file_name == ""){
+                            if (values3.file_name == null || values3.file_name == ""){
                               $("#pdf_viewer").attr('src', "").addClass("d-none");
                               $("#no_pdf_viewer").removeClass("d-none");
                               $("#btn_update_pdf").addClass("d-none");
-
                             }else{
                               $("#pdf_viewer").attr('src', "./../upload/pdfs/" + values3.file_name + "#view=FitH" ).removeClass("d-none");
                               $("#no_pdf_viewer").addClass("d-none");
                               $("#btn_update_pdf").removeClass("d-none");
-
                             }
+
+                            // Prepare attachment files
+                            let atachment_list = '';
+                            $.each( values3.attachment_files, function(k, v){
+                              let array_ids = v['id'].split("_");
+                              let id = array_ids[array_ids.length - 1 ];
+
+                              let row = `
+                                <tr>
+                                    <td>` + id + `</td>
+                                    <td>` + v['attach_name'] + `</td>
+                                    <td>
+                                        <a href="attach.destroy.php?parent_id=` + values3.id + `&id=` + v['id'] + `" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Remove</a>
+                                    </td>
+                                </tr>
+                              `;
+                              atachment_list += row;
+                            });
+                            $("#attached_table").html(atachment_list);
 
                         }                
                     });

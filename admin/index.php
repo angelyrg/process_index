@@ -1,5 +1,12 @@
 <?php
 session_start();
+if(isset($_SESSION['success']) && isset($_SESSION['user']) ){
+    $user_logged = $_SESSION['user'];
+}else{
+    header("Location: ../");
+}
+
+
 //Get all data
 require("process.index.php");
 
@@ -14,8 +21,16 @@ include("includes/modal_new_level.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://bitel.com.pe/upload/2005922/20220219/favicon_53b47.ico" type="image/vnd.microsoft.icon">
+ 
+    <!-- No caché -->
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    
+    <link rel="shortcut icon" href="https://bitel.com.pe/upload/2005922/20220219/favicon_53b47.ico" type="image/vnd.microsoft.icon" />
     <title>Admin | Bitel Process</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="assets/datatables/datatables.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -26,12 +41,18 @@ include("includes/modal_new_level.php");
     <nav class="navbar navbar-expand-lg my_navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="assets/imgs/bitel.svg" alt="Bitel" class="img-fluid"> <small>Admin panel</small>
+                <img src="assets/imgs/bitel.svg" alt="Bitel" class="img-fluid"> <span class="fw-bold">Admin</span>
             </a>
             <div class="d-flex align-items-center">
-                <!-- <i class="fa fa-user"></i>
-                <p>Username</p> -->
-                <button class="btn btn-outline-info"><i class="fa fa-user"></i> </button>
+                <div class="dropdown">
+                    <button class="btn btn-outline-info" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user"></i> User
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item text-info" href="./../"><i class="fa-solid fa-home"></i> Home</a></li>
+                        <li><a class="dropdown-item text-info" href="./../logout.php"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -47,7 +68,7 @@ include("includes/modal_new_level.php");
                 <div class="row text-end">
                     <spam>
                         <button type="button" class="btn btn-sm btn-outline-light rounded-pill" data-bs-toggle="modal" data-bs-target="#modal_new_level">
-                            <i class="fa-solid fa-plus text-white" aria-hidden="true"></i> New level
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i> New level
                         </button>
                     </spam>
                 </div>
@@ -59,11 +80,11 @@ include("includes/modal_new_level.php");
                         $id_item = $data->id;
                         $title = $data->text;
                     ?>
-                        <div class="accordion-item border-start rounded border border-info" draggable="true">
+                        <div class="accordion-item border-start rounded border border-info">
                             <h2 class="accordion-header" id="<?= $id_item ?>">
 
                                 <div class="btn-group col-12" role="group" aria-label="Button group with nested dropdown">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id_<?= $id_item ?>" aria-expanded="false" aria-controls="id_<?= $id_item ?>">
+                                    <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#id_<?= $id_item ?>" aria-expanded="false" aria-controls="id_<?= $id_item ?>">
                                         <?= $title ?>
                                     </button>
 
@@ -117,7 +138,7 @@ include("includes/modal_new_level.php");
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <button type="button" class="dropdown-item text-info" data-bs-toggle="modal" data-bs-target="#modal_insert_level_<?= $id_item; ?>" title="Add new level into level">
-                                                                    <i class="fa-solid fa-folder-plus" aria-hidden="true"></i> New level
+                                                                    <i class="fa-solid fa-diagram-project"  aria-hidden="true"></i> New process
                                                                 </button>
                                                             </li>
                                                             <li>
@@ -148,13 +169,12 @@ include("includes/modal_new_level.php");
                                                                     $id_item = $item3->id;
                                                                     $title = $item3->text;
                                                                 ?>
-
                                                                     <!-- Level 3 -->
                                                                     <div class="accordion-item border-start rounded border border-info">
                                                                         <h2 class="accordion-header" id="<?= $id_item ?>">
                                                                             <div class="btn-group col-12" role="group" aria-label="Button group with nested dropdown">
                                                                                 <button id="<?= $id_item ?>" class="accordion-button collapsed item_clickeable" type="button" data-bs-toggle="collapse" data-bs-target="#id_<?= $id_item ?>" aria-expanded="false" aria-controls="id_<?= $id_item ?>">
-                                                                                    <?= $title ?>
+                                                                                    <i class="fa-solid fa-diagram-project"></i><?= "&nbsp;" . $title ?>
                                                                                 </button>
 
                                                                                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split rounded-0" data-bs-toggle="dropdown" aria-expanded="false">
@@ -164,7 +184,7 @@ include("includes/modal_new_level.php");
                                                                                 <ul class="dropdown-menu">
                                                                                     <li>
                                                                                         <button type="button" class="dropdown-item text-warning" data-bs-toggle="modal" data-bs-target="#modal_edit_level_<?= $id_item; ?>" title="Edit level">
-                                                                                            <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Edit level name
+                                                                                            <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Edit process name
                                                                                         </button>
                                                                                     </li>
 
@@ -208,8 +228,8 @@ include("includes/modal_new_level.php");
                         <div class="text-info fw-bold" id="process_title">Title</div>
                         <div>
 
-                            <?php 
-                            include("includes/modal_upload_pdf.php"); 
+                            <?php
+                            include("includes/modal_upload_pdf.php");
                             include("includes/modal_upload_bizagi_folder.php");
                             ?>
                             <button type="button" class="btn btn-info rounded-pill d-none" id="btn_update_pdf" data-bs-toggle="modal" data-bs-target="#modal_upload_pdf">
@@ -219,9 +239,9 @@ include("includes/modal_new_level.php");
                             <button type="button" class="btn btn-info rounded-pill" id="btn_upload_bizagi_folder" data-bs-toggle="modal" data-bs-target="#modal_upload_bizagi_folder">
                                 <i class="fa-solid fa-plus" aria-hidden="true"></i> Upload Bizagi Folder
                             </button>
-                            
+
                             <a href="" class="btn btn-info rounded-pill d-none" target="_blank" id="link_bizagi_diagram">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Bizagi 
+                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Bizagi
                             </a>
 
                         </div>
@@ -237,7 +257,7 @@ include("includes/modal_new_level.php");
                                 <div class="text-center" id="no_pdf_viewer">
                                     <img src="assets/imgs/no-file.svg" alt="File not found" class="img-fluid">
                                     <p class="text-secondary"><small>No file to display</small></p>
-                                    
+
                                     <button type="button" class="btn btn-outline-info rounded-pill px-5" data-bs-toggle="modal" data-bs-target="#modal_upload_pdf">
                                         <i class="fa-solid fa-plus" aria-hidden="true"></i> Upload PDF file
                                     </button>
@@ -262,15 +282,7 @@ include("includes/modal_new_level.php");
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Commitment to require Outsource partner keep information confidential for Viettel Peru_F02</td>
-                                            <td>
-                                                <a href="#" class="btn btn-outline-warning btn-sm "><i class="fa fa-pen"></i> Edit</a>
-                                                <a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Remove</a>
-                                            </td>
-                                        </tr>
+                                    <tbody id="attached_table">
                                     </tbody>
                                 </table>
                             </div>
@@ -300,9 +312,9 @@ include("includes/modal_new_level.php");
     <script src="assets/js/upload.js"></script>
     <script>
         // Start datatables
-        $(document).ready(function() {
-            $('#table_id').DataTable();
-        });
+        // $(document).ready(function() {
+        //     $('#table_id').DataTable();
+        // });
 
         // Autofocus in new excel modal
         $('#modal_new_excel_link').on('shown.bs.modal', function() {
