@@ -9,7 +9,7 @@
         <div class="text-center pt-0 p-2">
           <img src="assets/imgs/icon_x_error.svg" alt="Error icon" class="img-fluid mb-2">
           <p class="fw-bolder text-danger">Error</p>
-          <p class="form-label" id="modal_error_message">There was an error. Try it again please.</p>
+          <p class="form-label" id="modal_error_message"></p>
         </div>
       </div>
       <div class="d-grid mx-5 mt-4 mb-3">

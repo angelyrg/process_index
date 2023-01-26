@@ -6,8 +6,6 @@ $password = $_POST["password"];
 
 if ($username == "admin" && $password=="admin"){
     $_SESSION['user'] = $username;
-
-    $_SESSION['success'] = "Login successfuly";
     header("Location: admin/");
 
 }else{

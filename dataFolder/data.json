@@ -98,7 +98,8 @@
                         "attach_name": "Requirement Analysis_F.02",
                         "attach_file_name": "Requirement Analysis_F.02.docx"
                     }
-                ]
+                ],
+                "items": null
             },
             {
                 "id": "4_2",
@@ -135,7 +136,8 @@
                         "attach_name": "For example",
                         "attach_file_name": "For example.xlsx"
                     }
-                ]
+                ],
+                "items": null
             },
             {
                 "id": "4_3",
@@ -188,38 +190,27 @@
                 "id": "6_1",
                 "text": "Strategy",
                 "expanded": false,
-                "items": [
-                    {
-                        "id": "6_1_1",
-                        "text": "test",
-                        "bizagi_folder": "Software outsource process__",
-                        "clickeable": true,
-                        "file_name": null,
-                        "items": [],
-                        "attachment_files": []
-                    }
-                ]
+                "items": []
             },
             {
                 "id": "6_2",
                 "text": "Finance",
                 "expanded": false,
-                "items": []
+                "items": [
+                    {
+                        "id": "6_2_1",
+                        "text": "test",
+                        "bizagi_folder": "Software outsource process__",
+                        "clickeable": true,
+                        "attachment_files": []
+                    }
+                ]
             },
             {
                 "id": "6_3",
                 "text": "Human Resource",
                 "expanded": false,
-                "items": [
-                    {
-                        "id": "6_3_1",
-                        "text": "HR Process receive employee",
-                        "clickeable": true,
-                        "file_name": "ANNEX 04 - Guideline template.pdf",
-                        "bizagi_folder": "SimpleModel3",
-                        "attachment_files": []
-                    }
-                ]
+                "items": []
             },
             {
                 "id": "6_4",
@@ -310,6 +301,13 @@
                         "clickeable": true,
                         "items": [],
                         "attachment_files": []
+                    },
+                    {
+                        "id": "7_2_2_3",
+                        "text": "HR Process receive employee",
+                        "bizagi_folder": "SimpleModel3",
+                        "clickeable": true,
+                        "attachment_files": []
                     }
                 ]
             },
@@ -318,7 +316,16 @@
                 "text": "Second level two",
                 "bizagi_folder": null,
                 "clickeable": false,
-                "items": []
+                "items": [
+                    {
+                        "id": "7_3_1",
+                        "text": "XDXD",
+                        "bizagi_folder": null,
+                        "clickeable": true,
+                        "attachment_files": null,
+                        "file_name": "ANEXO 1_OBSERVACIONES HERRAMIENTA DE MEDICI\u00d3N.pdf"
+                    }
+                ]
             }
         ]
     }

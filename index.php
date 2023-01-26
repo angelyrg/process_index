@@ -47,7 +47,7 @@
 session_start();
 if (isset($_SESSION['error'])){
   include("include/modal_error.php");
-  session_destroy();
+  unset($_SESSION['error']);
 }
 
 ?>
