@@ -48,11 +48,11 @@ class Master
         $json = json_encode(array_values($data), JSON_PRETTY_PRINT);
         $insert = file_put_contents($this->data_file, $json);
         if ($insert) {
-            $resp['status'] = 'success';
+            $_SESSION['success'] = "New level added successfully.";
         } else {
-            $resp['failed'] = 'failed';
+            $_SESSION['error'] = "Could not add new level.";
         }
-        return $resp;
+
     }
 
     
@@ -72,7 +72,8 @@ class Master
                         $json_arr[$key]['text'] = $title;
 
                         $json = json_encode($json_arr, JSON_PRETTY_PRINT);
-                        file_put_contents($this->data_file, $json);
+                        $insert = file_put_contents($this->data_file, $json);
+
                     }
                 }
                 break;
@@ -85,7 +86,7 @@ class Master
                                 $json_arr[$key]['items'][$k]['text'] = $title;
 
                                 $json = json_encode($json_arr, JSON_PRETTY_PRINT);
-                                file_put_contents($this->data_file, $json);
+                                $insert = file_put_contents($this->data_file, $json);
                             }
                         }
                     }
@@ -110,7 +111,7 @@ class Master
                                             $json_arr[$key]['items'][$k]['items'][$k3]['bizagi_folder'] = $bizagi_folder;
                                         }
                                         $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                                        file_put_contents($this->data_file, $json);
+                                        $insert = file_put_contents($this->data_file, $json);
                                     }
                                 }
                             }
@@ -119,6 +120,13 @@ class Master
                 }
                 break;
         }
+
+        if ($insert) {
+            $_SESSION['success'] = "Updated successfully.";
+        } else {
+            $_SESSION['error'] = "Could not update..";
+        }
+
     }
 
     /**
@@ -137,7 +145,7 @@ class Master
                         //unset($json_arr[$key]);
                         array_splice($json_arr, $key, 1); 
                         $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                        file_put_contents($this->data_file, $json);
+                        $insert = file_put_contents($this->data_file, $json);
                     }
                 }
                 break;
@@ -149,7 +157,7 @@ class Master
                                 array_splice($json_arr[$key]['items'], $k, 1); 
 
                                 $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                                file_put_contents($this->data_file, $json);
+                                $insert = file_put_contents($this->data_file, $json);
                             }
                         }
                     }
@@ -165,7 +173,7 @@ class Master
                                         array_splice($json_arr[$key]['items'][$k]['items'], $k3, 1); 
 
                                         $json = json_encode(($json_arr), JSON_PRETTY_PRINT);
-                                        file_put_contents($this->data_file, $json);
+                                        $insert = file_put_contents($this->data_file, $json);
                                     }
                                 }
                             }
@@ -173,6 +181,12 @@ class Master
                     }
                 }
                 break;
+        }
+
+        if ($insert) {
+            $_SESSION['success'] = "Data deleted successfully.";
+        } else {
+            $_SESSION['error'] = "Could not delete.";
         }
 
     }
@@ -186,8 +200,6 @@ class Master
         $json_arr = json_decode($data, true);
         $ids = explode("_", $id);
 
-        
-
         foreach($json_arr as $key => $value){
             if( $value['id'] == $ids[0] ){
                 foreach($value['items'] as $k => $items){
@@ -200,7 +212,7 @@ class Master
                                         array_splice($json_arr[$key]['items'][$k]['items'][$k3]['attachment_files'], $k_at, 1); 
         
                                         $json = json_encode(($json_arr), JSON_PRETTY_PRINT);
-                                        file_put_contents($this->data_file, $json);
+                                        $insert = file_put_contents($this->data_file, $json);
                                     }
                                 }
 
@@ -211,6 +223,7 @@ class Master
             }
         }
 
+        return $insert ? true : false;
     }
 
 
@@ -245,7 +258,7 @@ class Master
                         ];
                         array_push($json_arr[$key]['items'], $new_data);                                                            
                         $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                        file_put_contents($this->data_file, $json);                        
+                        $insert = file_put_contents($this->data_file, $json);                        
                     }
                 }
                 break;
@@ -271,7 +284,7 @@ class Master
                                 ];
                                 array_push($json_arr[$key]['items'][$k]['items'], $new_data);                                                            
                                 $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                                file_put_contents($this->data_file, $json);
+                                $insert = file_put_contents($this->data_file, $json);
                         }
                     }
                 }
@@ -280,6 +293,11 @@ class Master
             
         }
 
+        if ($insert) {
+            $_SESSION['success'] = "New record saved successfully.";
+        } else {
+            $_SESSION['error'] = "Could not insert new data.";
+        }
 
     }
 
@@ -306,22 +324,20 @@ class Master
                                 foreach($array_list as $file_name){  
                                     // Set new id (INSERT NEW ATTACH
                                     if ( count($value2['items']) > 0 ){
-
                                         $last_id = explode('_', end( $value3['attachment_files'] )['id']);
-
                                         $child_id = $id."_".(end($last_id) + 1);
                                     }else{
                                         $child_id = $id."_1";
                                     }  
                                     
-                                
                                     $new_data =  [
+                                        "id" => "at_".$child_id,
                                         "attach_name" => $file_name,
                                         "attach_file_name" => $file_name
                                     ];
                                     array_push($json_arr[$key]['items'][$k]['items'][$k3]['attachment_files'], $new_data);                                                            
                                     $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                                    file_put_contents($this->data_file, $json);
+                                    $insert = file_put_contents($this->data_file, $json);
                                 }
                                 
                             }
@@ -338,6 +354,11 @@ class Master
             }
         }
 
+        if ($insert) {
+            $_SESSION['success'] = "Attachment file added successfully.";
+        } else {
+            $_SESSION['error'] = "Could not add.";
+        }
 
     }
 
@@ -395,7 +416,7 @@ class Master
 
                         array_push($json_arr[$key]['items'][$k]['items'], $new_data);                                                            
                         $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                        file_put_contents($this->data_file, $json);
+                        $insert = file_put_contents($this->data_file, $json);
                 }
             }
         }

@@ -1,332 +1,41 @@
 [
     {
-        "id": "1",
-        "text": "SALE DIVISION",
-        "expanded": false,
-        "items": [
-            {
-                "id": "1_1",
-                "text": "B2C",
-                "expanded": false
-            },
-            {
-                "id": "1_2",
-                "text": "B2B",
-                "expanded": false,
-                "items": null
-            }
-        ]
-    },
-    {
-        "id": "2",
-        "text": "TECHNICAL DIVISION",
-        "expanded": false,
-        "items": []
-    },
-    {
-        "id": "3",
-        "text": "INFRASTRUCTURE DIVISION",
-        "expanded": false,
-        "items": []
-    },
-    {
-        "id": "4",
-        "text": "INFORMATION TECHNOLOGY DIVISION",
-        "expanded": false,
-        "items": [
-            {
-                "id": "4_1",
-                "text": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel Peru",
-                "clickeable": true,
-                "file_name": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel Peru.pdf",
-                "bizagi_folder": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel Peru",
-                "bizagi_diagram_id": "",
-                "attachment_files": [
-                    {
-                        "attach_name": "Acceptance test_F.07",
-                        "attach_file_name": "Acceptance test_F.07.docx"
-                    },
-                    {
-                        "attach_name": "Database Design_F.04",
-                        "attach_file_name": "Database Design_F.04.docx"
-                    },
-                    {
-                        "attach_name": "Description of change request_F.01",
-                        "attach_file_name": "Description of change request_F.01.docx"
-                    },
-                    {
-                        "attach_name": "Description of change request_F.01",
-                        "attach_file_name": "Description of change request_F.01.docx"
-                    },
-                    {
-                        "attach_name": "Description of change request_F.01",
-                        "attach_file_name": "Description of change request_F.01.docx"
-                    },
-                    {
-                        "attach_name": "Detail Design_F.05",
-                        "attach_file_name": "Detail Design_F.05.docx"
-                    },
-                    {
-                        "attach_name": "ESTIMATE EFFORT_Guide.02",
-                        "attach_file_name": "ESTIMATE EFFORT_Guide.02.xls"
-                    },
-                    {
-                        "attach_name": "How to Assess and Ensure UX criteria_Guide.05",
-                        "attach_file_name": "How to Assess and Ensure UX criteria_Guide.05.xlsx"
-                    },
-                    {
-                        "attach_name": "How to avoid potential errors when program_Guide.03",
-                        "attach_file_name": "How to avoid potential errors when program_Guide.03.docx"
-                    },
-                    {
-                        "attach_name": "How to use SonarQ for checking source code_Guide.04",
-                        "attach_file_name": "How to use SonarQ for checking source code_Guide.04.docx"
-                    },
-                    {
-                        "attach_name": "How to write Story_Guide.01",
-                        "attach_file_name": "How to write Story_Guide.01.docx"
-                    },
-                    {
-                        "attach_name": "Internal Acceptance test_F.06",
-                        "attach_file_name": "Internal Acceptance test_F.06.docx"
-                    },
-                    {
-                        "attach_name": "Overal Design_F.03",
-                        "attach_file_name": "Overal Design_F.03.docx"
-                    },
-                    {
-                        "attach_name": "Requirement Analysis_F.02",
-                        "attach_file_name": "Requirement Analysis_F.02.docx"
-                    }
-                ],
-                "items": null
-            },
-            {
-                "id": "4_2",
-                "text": "Directive about require to comply with regulations at Viettel Peru",
-                "clickeable": true,
-                "file_name": "012023_Directive about require to comply with regulations at Viettel Peru.pdf",
-                "bizagi_folder": "Directive about require to comply with regulations at Viettel Peru",
-                "attachment_files": [
-                    {
-                        "attach_name": "Appendix 01.1 Example process and description of the tasks",
-                        "attach_file_name": "Appendix 01.1 Example process and description of the tasks.docx"
-                    },
-                    {
-                        "attach_name": "Template of document for submitting on VO_F.01. ",
-                        "attach_file_name": "Template of document for submitting on VO_F.01. .docx"
-                    },
-                    {
-                        "attach_name": "112022_Statement about approval to choose BPMN as the standard process at Viettel Peru",
-                        "attach_file_name": "112022_Statement about approval to choose BPMN as the standard process at Viettel Peru.docx"
-                    },
-                    {
-                        "attach_name": "Appendix 01_Guideline for using BPMN notation to draw flowcharts",
-                        "attach_file_name": "Appendix 01_Guideline for using BPMN notation to draw flowcharts.docx"
-                    },
-                    {
-                        "attach_name": "Appendix 02_Rules for checking flowcharts in BPMN",
-                        "attach_file_name": "Appendix 02_Rules for checking flowcharts in BPMN.docx"
-                    },
-                    {
-                        "attach_name": "Appendix 03_Guideline for using Bizagi to draw the BPMN process",
-                        "attach_file_name": "Appendix 03_Guideline for using Bizagi to draw the BPMN process.docx"
-                    },
-                    {
-                        "attach_name": "For example",
-                        "attach_file_name": "For example.xlsx"
-                    }
-                ],
-                "items": null
-            },
-            {
-                "id": "4_3",
-                "text": "PROCESS.VTP.IT.03_Process for Software outsource managment",
-                "clickeable": true,
-                "file_name": "Process for Software outsource managment.pdf",
-                "bizagi_folder": "PROCESS.VTP.IT.03_Process for Software outsource managment",
-                "bizagi_diagram_id": "",
-                "attachment_files": [
-                    {
-                        "attach_name": "Commitment to require Outsource partner keep information confidential for Viettel Peru_F02",
-                        "attach_file_name": "Commitment to require Outsource partner keep information confidential for Viettel Peru_F02.docx"
-                    },
-                    {
-                        "attach_name": "Criteria for evaluating effectiveness of Outsource partner when finish contract_Appendix 02",
-                        "attach_file_name": "Criteria for evaluating effectiveness of Outsource partner when finish contract_Appendix 02.docx"
-                    },
-                    {
-                        "attach_name": "ESTIMATE EFFORT OUTSOURCE_F.03 (Internal use only, Don't send Outsource Partner)",
-                        "attach_file_name": "ESTIMATE EFFORT OUTSOURCE_F.03 (Internal use only, Don't send Outsource Partner).xls"
-                    },
-                    {
-                        "attach_name": "Handover from Partner to Viettel Peru_F01",
-                        "attach_file_name": "Handover from Partner to Viettel Peru_F01.docx"
-                    },
-                    {
-                        "attach_name": "Monthly plan_F.04",
-                        "attach_file_name": "Monthly plan_F.04.xlsx"
-                    },
-                    {
-                        "attach_name": "Technical Criteria attached to Contract with Outsource Partner_Appendix 01",
-                        "attach_file_name": "Technical Criteria attached to Contract with Outsource Partner_Appendix 01.docx"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "5",
-        "text": "CUSTOMER DIVISION",
-        "expanded": false,
-        "items": []
-    },
-    {
-        "id": "6",
-        "text": "ENTERPRISE MANAGEMENT DIVISION",
-        "expanded": false,
-        "items": [
-            {
-                "id": "6_1",
-                "text": "Strategy",
-                "expanded": false,
-                "items": []
-            },
-            {
-                "id": "6_2",
-                "text": "Finance",
-                "expanded": false,
-                "items": [
-                    {
-                        "id": "6_2_1",
-                        "text": "test",
-                        "bizagi_folder": "Software outsource process__",
-                        "clickeable": true,
-                        "attachment_files": []
-                    }
-                ]
-            },
-            {
-                "id": "6_3",
-                "text": "Human Resource",
-                "expanded": false,
-                "items": []
-            },
-            {
-                "id": "6_4",
-                "text": "Investment",
-                "expanded": false,
-                "items": []
-            },
-            {
-                "id": "6_5",
-                "text": "Asset",
-                "expanded": false,
-                "items": []
-            },
-            {
-                "id": "6_6",
-                "text": "Administration",
-                "expanded": false,
-                "items": []
-            },
-            {
-                "id": "6_7",
-                "text": "Legal",
-                "expanded": false,
-                "items": []
-            }
-        ]
-    },
-    {
-        "id": 7,
-        "text": "Demo level",
+        "id": 1,
+        "text": "DIVISION 1",
         "bizagi_folder": null,
         "clickeable": false,
         "items": [
             {
-                "id": "7_1",
-                "text": "Another level",
+                "id": "1_1",
+                "text": "Area 1",
                 "bizagi_folder": null,
                 "clickeable": false,
                 "items": [
                     {
-                        "id": "7_1_1",
-                        "text": "Process Demo",
-                        "bizagi_folder": null,
-                        "clickeable": false,
-                        "items": [],
-                        "attachment_files": []
-                    },
-                    {
-                        "id": "7_1_2",
-                        "text": "Seccond process",
-                        "bizagi_folder": null,
-                        "clickeable": false,
-                        "items": [],
-                        "attachment_files": []
-                    }
-                ]
-            },
-            {
-                "id": "7_2",
-                "text": "Second level",
-                "bizagi_folder": null,
-                "clickeable": false,
-                "items": [
-                    {
-                        "id": "7_2_1",
-                        "text": "Peruvian food process",
-                        "bizagi_folder": "SimpleModel3",
-                        "clickeable": true,
-                        "file_name": "Bitel Aventuras - Game Client Architecture.pdf",
-                        "items": [],
-                        "attachment_files": [
-                            {
-                                "id": "at_7_2_1_1",
-                                "attach_name": "How to avoid potential errors when program_Guide.03.docx",
-                                "attach_file_name": "How to avoid potential errors when program_Guide.03.docx"
-                            },
-                            {
-                                "id": "at_7_2_1_2",
-                                "attach_name": "PROCESS LIST.xlsx",
-                                "attach_file_name": "PROCESS LIST.xlsx"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "7_2_2",
-                        "text": "tESTXD",
+                        "id": "1_1_1",
+                        "text": "Process 1",
                         "bizagi_folder": null,
                         "clickeable": true,
                         "items": [],
                         "attachment_files": []
                     },
                     {
-                        "id": "7_2_2_3",
-                        "text": "HR Process receive employee",
-                        "bizagi_folder": "SimpleModel3",
-                        "clickeable": true,
-                        "attachment_files": []
-                    }
-                ]
-            },
-            {
-                "id": "7_3",
-                "text": "Second level two",
-                "bizagi_folder": null,
-                "clickeable": false,
-                "items": [
-                    {
-                        "id": "7_3_1",
-                        "text": "XDXD",
+                        "id": "1_1_2",
+                        "text": "Another process",
                         "bizagi_folder": null,
                         "clickeable": true,
-                        "attachment_files": null,
-                        "file_name": "ANEXO 1_OBSERVACIONES HERRAMIENTA DE MEDICI\u00d3N.pdf"
+                        "items": [],
+                        "attachment_files": []
                     }
                 ]
             }
         ]
+    },
+    {
+        "id": 2,
+        "text": "DIVISION 2",
+        "bizagi_folder": null,
+        "clickeable": false,
+        "items": []
     }
 ]

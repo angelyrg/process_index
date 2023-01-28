@@ -29,7 +29,7 @@ class Excel
             $json_arr[0]['spreadsheets_link'] = $link;
             $json = json_encode($json_arr, JSON_PRETTY_PRINT);
             file_put_contents($this->data_file, $json);
-            $_SESSION['success'] = "Excel link updated successfuly";
+            $_SESSION['success'] = "Excel link updated successfully";
         } else {
             $_SESSION['error'] = "Invalid link.";
         }

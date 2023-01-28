@@ -34,3 +34,13 @@ $("#btn_process_list").on("click", function(){
 });
 
 
+$("#btn_collapse_tree").on("click", function(){
+  $("#treeview").dxTreeView("collapseAll");
+});
+
+$("#btn_expand_tree").on("click", function(){
+  $("#treeview").dxTreeView("expandAll");
+});
+
+$("#treeview").dxTreeView("expandItem", nodeKey);
+// $("#treeViewContainer").dxTreeView("collapseItem", nodeKey);

@@ -67,6 +67,7 @@ header {
     border: 1px solid #057689;
     margin-bottom: .5em;
     padding: .3em;
+    padding-bottom: 50px;
 }
 
 #dragdrop_animation{

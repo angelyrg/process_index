@@ -56,10 +56,7 @@ function searchItem(full_id, data) {
               $("[id=process_id]").val(values3.id);
               $("#process_id_bizagi").val(values3.id);
 
-              if (
-                values3.bizagi_folder == null ||
-                values3.bizagi_folder == ""
-              ) {
+              if ( values3.bizagi_folder == null || values3.bizagi_folder == ""  ) {
                 $("#link_bizagi_diagram").attr("href", "");
                 $("#link_bizagi_diagram").addClass("d-none");
               } else {
@@ -85,33 +82,36 @@ function searchItem(full_id, data) {
                 $("#btn_update_pdf").removeClass("d-none");
               }
 
-              // Prepare attachment files
-              let atachment_list = "";
-              $.each(values3.attachment_files, function (k, v) {
-                let array_ids = v["id"].split("_");
-                let id = array_ids[array_ids.length - 1];
+              
 
+              // Prepare attachment files
+              let attachment_list = "";
+              $.each( values3.attachment_files, function( key, value ) {
                 let row =
-                  `
-                                <tr>
-                                    <td>` +
-                  id +
-                  `</td>
-                                    <td>` +
-                  v["attach_name"] +
-                  `</td>
-                                    <td>
-                                        <a href="attach.destroy.php?parent_id=` +
-                  values3.id +
-                  `&id=` +
-                  v["id"] +
-                  `" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Remove</a>
-                                    </td>
-                                </tr>
-                              `;
-                atachment_list += row;
+                  `<tr>
+                    <td>` + (key+1) + `</td>
+                    <td>` + value.attach_name + `</td>
+                    <td>
+                      <a href="attach.destroy.php?parent_id=` + values3.id + `&id=` + value.id + `" class="btn btn-outline-danger btn-sm rounded-pill" onclick="if(confirm('Are you sure to delete this item?') === false) event.preventDefault();">
+                        <i class="fa fa-trash"></i> Remove
+                      </a>
+                      <a href="../upload/attached/` + value.attach_file_name + `" class="btn btn-sm btn-outline-dark rounded-pill" download>
+                        <i class="fa-solid fa-download"></i> Download
+                      </a>
+
+                      <form method="post" id="form_delete_att">
+                        <input type="hidden" name="id_parent" value="` + values3.id + `">
+                        <input type="hidden" name="id_att" value="` + value.id + `">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">X</button>
+                      </form>
+
+                    </td>
+                  </tr>`;
+                  attachment_list += row;
               });
-              $("#attached_table").html(atachment_list);
+
+              $("#attached_table").html( attachment_list );
+              $('#table_id').DataTable();
             }
           });
         }
@@ -128,6 +128,29 @@ $(".item_clickeable").on("click", function () {
   let item_id = $(this).attr("id");
   searchItem(item_id, window.all_data);
 });
+
+//Remove without reflesh
+$(document).on("submit", "#form_delete_att", function(e){
+  e.preventDefault();
+
+  var dat = $(this).serialize();
+
+  $.ajax({
+    type:"POST",
+    url:"attach.destroy.php",
+    data: dat,
+    success:function(resp){
+      if (resp){
+        console.log("deleted");
+        //$(this).remove();
+      }else{
+        console.log("No delted")
+      }
+    }
+  })
+});
+
+
 
 // Show Excel with processes list
 $("#btn_processes_list").on("click", () => {

@@ -82,7 +82,11 @@ if (isset($_SESSION['error'])){
     <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse shadow">
       <div class="demo-container ps-4">
         <div class="d-grid my-2 pb-3 btn_process_list">
-          <a href="#" class="btn btn-outline-light rounded-pill" id="btn_process_list">Process List</a>
+          <a href="#" class="btn btn-outline-light btn-sm rounded-pill" id="btn_process_list">Process List</a>
+        </div>
+        <div class="d-flex justify-content-end">
+          <a href="#" id="btn_expand_tree" class="btn btn-sm btn-outline-light">Expand all</a>
+          <a href="#" id="btn_collapse_tree" class="btn btn-sm btn-outline-light">Collapse all</a>
         </div>
         <div class="mt-3" id="treeview"></div>
       </div>
@@ -116,7 +120,6 @@ if (isset($_SESSION['error'])){
     </div>
   </div>
 
-
   <!-- Modal Attachment files-->
   <div class="modal fade" id="modal_attachments" tabindex="-1" aria-labelledby="modal_attachments" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -135,14 +138,12 @@ if (isset($_SESSION['error'])){
     </div>
   </div>
 
-
-
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script>
-    $(document).on("change", function() {
-      $(".biz-ex-navigation-left").remove()
-    });
+    // $(document).on("change", function() {
+    //   $(".biz-ex-navigation-left").remove()
+    // });
   </script>
   <script src="assets/js/main.js"></script>
 

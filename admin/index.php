@@ -1,8 +1,8 @@
 <?php
 session_start();
-if( isset($_SESSION['user']) ){
+if (isset($_SESSION['user'])) {
     $user_logged = $_SESSION['user'];
-}else{
+} else {
     header("Location: ../");
 }
 
@@ -21,13 +21,13 @@ include("includes/modal_new_level.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
     <!-- No caché -->
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
-    
+
     <link rel="shortcut icon" href="https://bitel.com.pe/upload/2005922/20220219/favicon_53b47.ico" type="image/vnd.microsoft.icon" />
     <title>Admin | Bitel Process</title>
 
@@ -38,20 +38,19 @@ include("includes/modal_new_level.php");
 </head>
 
 <body>
-<?php
+    <?php
 
-//echo $_SESSION['error'];
+    //echo $_SESSION['error'];
 
-if (isset($_SESSION['error'])){
-  include("includes/modal_error-admin.php");
-  unset($_SESSION['error']);
+    if (isset($_SESSION['error'])) {
+        include("includes/modal_error-admin.php");
+        unset($_SESSION['error']);
+    } elseif (isset($_SESSION['success'])) {
+        include("includes/modal_success-admin.php");
+        unset($_SESSION['success']);
+    }
 
-}elseif(isset($_SESSION['success'])){
-    include("includes/modal_success-admin.php");
-    unset($_SESSION['success']);
-}
-
-?>
+    ?>
 
     <nav class="navbar navbar-expand-lg my_navbar">
         <div class="container-fluid">
@@ -82,7 +81,7 @@ if (isset($_SESSION['error'])){
 
                 <div class="row text-end">
                     <spam>
-                        <a href="reorganize.php" class="btn btn-outline-light btn-sm rounded-pill"> Reorganize</a>
+                        <a href="reorganize.php" class="btn btn-outline-light btn-sm rounded-pill"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Reorganize</a>
                         <button type="button" class="btn btn-sm btn-outline-light rounded-pill" data-bs-toggle="modal" data-bs-target="#modal_new_level">
                             <i class="fa-solid fa-plus" aria-hidden="true"></i> New level
                         </button>
@@ -154,7 +153,7 @@ if (isset($_SESSION['error'])){
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <button type="button" class="dropdown-item text-info" data-bs-toggle="modal" data-bs-target="#modal_insert_level_<?= $id_item; ?>" title="Add new level into level">
-                                                                    <i class="fa-solid fa-diagram-project"  aria-hidden="true"></i> New process
+                                                                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> New process
                                                                 </button>
                                                             </li>
                                                             <li>
@@ -325,20 +324,14 @@ if (isset($_SESSION['error'])){
     <!-- Upload script is executed automaticatly when select a folder. -->
     <script src="assets/js/upload.js"></script>
     <script>
-        // Start datatables
-        // $(document).ready(function() {
-        //     $('#table_id').DataTable();
-        // });
-
         // Autofocus in new excel modal
         $('#modal_new_excel_link').on('shown.bs.modal', function() {
             $(this).find('[autofocus]').focus();
         });
+        $('#modal_new_level').on('shown.bs.modal', function() {
+            $(this).find('[autofocus]').focus();
+        });
 
-        // Disable resubmit of form when refresh page
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-        }
     </script>
 
 </body>

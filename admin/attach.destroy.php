@@ -2,12 +2,12 @@
 require_once('Master.php');
 $master = new Master();
 
-$id = $_GET['id']; //
-$parent_id = $_GET['parent_id'];
+$id = $_POST['id_att'];
+$parent_id = $_POST['id_parent'];
 
+$result = $master->delete_attached_file($parent_id, $id);
 
-var_dump($master->delete_attached_file($parent_id, $id));
-
-header('location: ./');
+echo $result;
+//header('location: ./');
 
 ?>
