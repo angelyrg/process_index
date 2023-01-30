@@ -41,9 +41,18 @@ $(document).ready(function () {
 // Search item to display info
 function searchItem(full_id, data) {
   let ids = full_id.split("_");
-  data.forEach((values) => {
+
+  data.forEach((i) => {
+    console.log("xdxdx");
+    return;
+  } );
+
+
+  /*data.forEach((values) => {
     if (values.id == ids[0]) {
       const arr = Array.from(values.items);
+
+      
 
       arr.forEach((values2) => {
         if (values2.id == ids[0] + "_" + ids[1]) {
@@ -67,11 +76,15 @@ function searchItem(full_id, data) {
                 $("#link_bizagi_diagram").removeClass("d-none");
               }
 
+
+
               if (values3.file_name == null || values3.file_name == "") {
                 $("#pdf_viewer").attr("src", "").addClass("d-none");
                 $("#no_pdf_viewer").removeClass("d-none");
                 $("#btn_update_pdf").addClass("d-none");
+                console.log("NO PDF EXISTS");
               } else {
+                console.log("YES PDF EXISTS");
                 $("#pdf_viewer")
                   .attr(
                     "src",
@@ -117,7 +130,7 @@ function searchItem(full_id, data) {
         }
       });
     }
-  });
+  });*/
 }
 
 // Update main content with selected process info
@@ -126,6 +139,8 @@ $(".item_clickeable").on("click", function () {
   $("#process_info").removeClass("d-none");
 
   let item_id = $(this).attr("id");
+  console.log(item_id);
+
   searchItem(item_id, window.all_data);
 });
 

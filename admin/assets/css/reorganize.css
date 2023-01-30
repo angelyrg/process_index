@@ -73,3 +73,7 @@ header {
 #dragdrop_animation{
     border: 1px dashed #057689;
 }
+
+.dragallowed{
+    border: 1px dashed gray;
+}

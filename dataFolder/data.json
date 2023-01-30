@@ -1,7 +1,45 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "text": "DIVISION 1",
+        "bizagi_folder": null,
+        "clickeable": false,
+        "items": [
+            {
+                "id": "3_1",
+                "text": "Area name",
+                "bizagi_folder": null,
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "1_1_2",
+                        "text": "Process 003",
+                        "bizagi_folder": null,
+                        "clickeable": true,
+                        "attachment_files": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "text": "DIVISION 2",
+        "bizagi_folder": null,
+        "clickeable": false,
+        "items": [
+            {
+                "id": "2_1",
+                "text": "test area",
+                "bizagi_folder": null,
+                "clickeable": false,
+                "items": []
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "text": "Divisi\u00f3n 3",
         "bizagi_folder": null,
         "clickeable": false,
         "items": [
@@ -10,32 +48,48 @@
                 "text": "Area 1",
                 "bizagi_folder": null,
                 "clickeable": false,
+                "items": []
+            },
+            {
+                "id": "4_1",
+                "text": "DBUS",
+                "bizagi_folder": null,
+                "clickeable": false,
                 "items": [
                     {
-                        "id": "1_1_1",
-                        "text": "Process 1",
-                        "bizagi_folder": null,
+                        "id": "4_1_1",
+                        "text": "Precess dbus 1",
+                        "bizagi_folder": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel_Peru",
                         "clickeable": true,
                         "items": [],
-                        "attachment_files": []
-                    },
-                    {
-                        "id": "1_1_2",
-                        "text": "Another process",
-                        "bizagi_folder": null,
-                        "clickeable": true,
-                        "items": [],
-                        "attachment_files": []
+                        "attachment_files": [],
+                        "file_name": "Business_Process_Framework_eTOM_Poster_v21.5.pdf"
                     }
                 ]
             }
         ]
     },
     {
-        "id": 2,
-        "text": "DIVISION 2",
+        "id": "4",
+        "text": "Divisi\u00f3n IT",
         "bizagi_folder": null,
         "clickeable": false,
-        "items": []
+        "items": [
+            {
+                "id": "4_2",
+                "text": "IT Operation",
+                "bizagi_folder": null,
+                "clickeable": false,
+                "items": [
+                    {
+                        "id": "3_1_1",
+                        "text": "Another process",
+                        "bizagi_folder": null,
+                        "clickeable": true,
+                        "attachment_files": []
+                    }
+                ]
+            }
+        ]
     }
 ]

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ( isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
 	$user_logged = $_SESSION['user'];
 	//Get all data
 	require("process.index.php");
@@ -27,69 +27,53 @@ if ( isset($_SESSION['user'])) {
 
 <body>
 	<nav class="navbar navbar-expand-lg my_navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/imgs/bitel.svg" alt="Bitel" class="img-fluid"> <span class="fw-bold">Admin</span>
-            </a>
-        </div>
-    </nav>
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<img src="assets/imgs/bitel.svg" alt="Bitel" class="img-fluid"> <span class="fw-bold">Admin</span>
+			</a>
+		</div>
+	</nav>
 
 	<div class="d-flex container-fluid justify-content-between my-1">
-		<a href="./" class="btn btn-outline-info rounded-pill" ><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to admin</a>
+		<a href="./" class="btn btn-outline-info rounded-pill"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to admin</a>
 		<p class="text-center"> You can move any process to another level in the same level</p>
 		<p></p>
 	</div>
 	<div class="app ps-3">
 
-		<div class="lists row" ondrop="return false;" ondragover="return false;">
+		<div class="lists" >
 			<?php
-			// Level 1
+			// Level 1 => DIVISION
 			foreach ($json_data as $data) {
 				$id_item = $data->id;
-				$title = $data->text;
-			?>
-				<div id="<?= $id_item ?>" class="list rounded border border-info level_1" >
+				$title = $data->text; ?>
+				<div id="<?= $id_item ?>" class="list rounded border border-info level_1 my_draggable pb-5" ondrop="drop(event)" ondragover="allowDrop(event)"> 
 					<p class="text-info fw-bolder text-center"><?= $title ?></p>
-					
-
 					<?php if (isset($data->items)) {
-						// Level 2
+
+						// Level 2 => AREAS
 						foreach ($data->items as $item) {
-
 							$id_item = $item->id;
-							$title = $item->text;
-
-					?>
-							<div id="<?= $id_item ?>" class="col rounded text-center my_draggable level_2" ondrop="drop(event)" ondragover="allowDrop(event)">
+							$title = $item->text; ?>
+							<div id="<?= $id_item ?>" class="col rounded text-center my_draggable level_2" draggable="true">
 								<?= $title ?>
-
 								<?php
 								if (isset($item->items)) { ?>
 									<?php
-									// Level 3
+									
+									// Level 3 => PROCESSES
 									foreach ($item->items as $item3) {
 										$id_item = $item3->id;
-										$title = $item3->text;
-									?>
+										$title = $item3->text; ?>
 
-										<div id="<?= $id_item ?>" class="list-item col p-2 level_3" draggable="true" ondrop="return false;" ondragover="return false;" >
+										<div id="<?= $id_item ?>" class="list-item col p-2 level_3" draggable="true" ondrop="return false;" ondragover="return false;">
 											<i class="fa fa-diagram-project" aria-hidden="true"></i>
 											<?= $title ?>
-										</div>
-
-
-								<?php
+										</div> <?php
 									}
 								} ?>
-								
-								<!-- <div id="dragdrop_animation" class="col p-2 rounded mb-0" draggable="false"><small>Drop here...</small></div> -->
 
-							</div>
-
-							<?php
-
-							?>
-					<?php
+							</div> <?php
 						}
 					} ?>
 				</div>

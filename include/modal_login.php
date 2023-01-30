@@ -10,11 +10,11 @@
                   <div class="modal-body">
                       <div class="form-group mb-2">
                           <label for="username">Username</label>
-                          <input type="text" id="username" name="username" class="form-control rounded-pill" autofocus autocomplete="off" placeholder="Username">
+                          <input type="text" id="username" name="username" class="form-control rounded-pill" autofocus autocomplete="off">
                       </div>
                       <div class="form-group mb-2">
                           <label for="username">Password</label>
-                          <input type="password" id="password" name="password" class="form-control rounded-pill" placeholder="Password">
+                          <input type="password" id="password" name="password" class="form-control rounded-pill">
                       </div>
 
                       <div class="d-flex justify-content-center">

@@ -4,7 +4,7 @@ $master = new Master();
 
 $id = $_GET['id'];
 
-$master->delete_data($id);
+var_dump($master->delete_data($id));
 
 header('location: ./');
 
