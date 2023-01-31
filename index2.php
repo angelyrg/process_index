@@ -3,38 +3,43 @@
 <?php
 $id = $_GET['id'];
 
-require("admin/Master.php");
-$master = new Master();
-$data = $master->get_data($id);
+if (!isset($id)){
+  header("Location: home.php");
+}
 
-var_dump($data);
+require("Main.php");
+$main = new Main();
 
+$main->restore_expanded();
+$main->make_expand($id);
+$process = $main->get_data($id);
+
+//var_dump( file_get_contents($main->data_file) );
 
 ?>
 
     <div class="col-md-8 col-lg-9 mx-auto mt-3">
-      <!-- Excel process -->
-      <div class="container-fluid" id="excel_content">
-        <iframe src="" class="col-12" id="excel_viewer"></iframe>
-      </div>
       <!-- Main process info -->
-      <div class="container-fluid d-none" id="info_content">
+      <div class="container-fluid" id="info_content">
         <div class="d-flex justify-content-between">
-          <p class="fw-bolder" id="process_title">Title</p>
+          <p class="fw-bolder" id="process_title"><?= $process["text"]; ?></p>
           <div>
             <button type="button" class="btn btn-info rounded-pill me-2" data-bs-toggle="modal" data-bs-target="#modal_attachments"> <i class="fa-solid fa-list" aria-hidden="true"></i> Download attached files</button>
-            <a href="" class="btn btn-info rounded-pill" target="_blank" id="link_bizagi_diagram"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Bizagi </a>
+            <a href="upload/bizagi/<?= $process["bizagi_folder"] ?>/index.html" class="btn btn-info rounded-pill <?= ( $process["bizagi_folder"] != null && $process["bizagi_folder"] != "" ) ? "" : "disabled"; ?>" target="_blank" ><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Bizagi </a>
           </div>
           
         </div>
         <div class="col-12 ">
-          <iframe src="" width="100%" id="pdf_viewer" frameborder="0"></iframe>
-          <div class="text-center align-items-center d-none rounded-3 text-center" id="no_pdf_viewer">
+          <?php if( isset($process["file_name"]) && ($process["file_name"] != null && $process["file_name"] != "") ){ ?>
+          <iframe src="upload/pdfs/<?= $process["file_name"] ?>" width="100%" id="pdf_viewer" frameborder="0"></iframe>
+          <?php }else{ ?>
+          <div class="text-center align-items-center rounded-3 text-center" id="no_pdf_viewer">
             <div>
               <img src="admin/assets/imgs/no-file.svg" alt="File not found" class="img-fluid">
               <p class="text-secondary"><small>PDF file is in process to be sign.</small></p>
             </div>
           </div>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -49,7 +54,21 @@ var_dump($data);
           <button type="button" class="btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <ul class="list-group" id="files_to_download"></ul>
+          <ul class="list-group" id="files_to_download">
+            <?php if ( count($process['attachment_files']) == 0 ){ ?>
+              <label>There are not attached files yet</label>
+              <?php }else{ ?>
+            <?php foreach ($process['attachment_files'] as $key => $value) { ?>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <?= $value['attach_name'] ?>
+                <a href="upload/attached/<?= $value["attach_file_name"] ?>" class="btn btn-sm btn-outline-info rounded-pill" download>
+                  <i class="fa-solid fa-download"></i> Download
+                </a>
+              </li>                 
+                <?php
+              }
+              } ?>
+          </ul>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-info rounded-pill px-5 fw-bolder" data-bs-dismiss="modal"> Close </button>

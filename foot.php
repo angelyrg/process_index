@@ -9,7 +9,6 @@
           fetch("dataFolder/data.json")
               .then(resp => resp.json())
               .then(function(data) {
-                  console.log(data);
 
                   const treeView = $('#treeview').dxTreeView({
                       items: data, //Data got from get_data.js

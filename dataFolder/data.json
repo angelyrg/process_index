@@ -3,23 +3,50 @@
         "id": "1",
         "text": "DIVISION 1",
         "bizagi_folder": null,
-        "expanded" : true,
+        "expanded": false,
         "clickeable": false,
         "items": [
             {
                 "id": "3_1",
                 "text": "Area name",
                 "bizagi_folder": null,
-                "expanded" : true,
+                "expanded": false,
                 "clickeable": false,
                 "items": [
                     {
                         "id": "1_1_2",
                         "text": "Process 003",
                         "bizagi_folder": null,
-                        "expanded" : true,
+                        "expanded": false,
                         "clickeable": true,
-                        "attachment_files": []
+                        "attachment_files": [
+                            {
+                                "attach_name": "Acceptance test_F.07",
+                                "attach_file_name": "Acceptance test_F.07.docx"
+                            },
+                            {
+                                "attach_name": "Database Design_F.04",
+                                "attach_file_name": "Database Design_F.04.docx"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4_1_1",
+                        "text": "Precess dbus 1",
+                        "bizagi_folder": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel_Peru",
+                        "clickeable": true,
+                        "items": [],
+                        "attachment_files": [],
+                        "file_name": "Business_Process_Framework_eTOM_Poster_v21.5.pdf",
+                        "expanded": false
+                    },
+                    {
+                        "id": "3_1_1",
+                        "text": "Another process",
+                        "bizagi_folder": null,
+                        "clickeable": true,
+                        "attachment_files": [],
+                        "expanded": true
                     }
                 ]
             }
@@ -58,17 +85,7 @@
                 "text": "DBUS",
                 "bizagi_folder": null,
                 "clickeable": false,
-                "items": [
-                    {
-                        "id": "4_1_1",
-                        "text": "Precess dbus 1",
-                        "bizagi_folder": "PROCESS.VTP.IT.02_Software development process by Agile method in Viettel_Peru",
-                        "clickeable": true,
-                        "items": [],
-                        "attachment_files": [],
-                        "file_name": "Business_Process_Framework_eTOM_Poster_v21.5.pdf"
-                    }
-                ]
+                "items": []
             }
         ]
     },
@@ -83,15 +100,7 @@
                 "text": "IT Operation",
                 "bizagi_folder": null,
                 "clickeable": false,
-                "items": [
-                    {
-                        "id": "3_1_1",
-                        "text": "Another process",
-                        "bizagi_folder": null,
-                        "clickeable": true,
-                        "attachment_files": []
-                    }
-                ]
+                "items": []
             }
         ]
     }
