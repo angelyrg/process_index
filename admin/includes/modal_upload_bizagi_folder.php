@@ -13,7 +13,7 @@
             <div class="picker">
               <!-- After select a folder, execute upload.js script -->
               <input type="file" id="picker" name="fileList" class="form-control" webkitdirectory multiple>
-              <input type="hidden" id="process_id_bizagi" name="process_id_bizagi" value="">
+              <input type="hidden" id="process_id_bizagi" name="process_id_bizagi" value="<?= $process["id"]; ?>">
             </div>
             <br>
             <p class="mb-0">Percentage</p>

@@ -46,6 +46,13 @@ Class UploadFolder
         $file_type      = $files['type'];
         $file_ext       = strtolower(end(explode('.',$file_name)));
 
+        // Check for allowed extensions
+        if ($this->extensions != "*") {
+            if (!in_array($file_ext, $this->extensions)) {
+                $this->errors[] = "This file extension ($file_ext) is not allowed.";
+            }
+        }
+
 
         // If not error
         if (empty($this->errors)) {

@@ -43,7 +43,7 @@ function searchItem(full_id, data) {
   let ids = full_id.split("_");
 
   data.forEach((i) => {
-    console.log("xdxdx");
+    //console.log("xdxdx");
     return;
   } );
 
@@ -135,13 +135,13 @@ function searchItem(full_id, data) {
 
 // Update main content with selected process info
 $(".item_clickeable").on("click", function () {
-  $("#processes_excel").addClass("d-none");
-  $("#process_info").removeClass("d-none");
+  // $("#processes_excel").addClass("d-none");
+  // $("#process_info").removeClass("d-none");
 
-  let item_id = $(this).attr("id");
-  console.log(item_id);
+  // let item_id = $(this).attr("id");
+  // console.log(item_id);
 
-  searchItem(item_id, window.all_data);
+  // searchItem(item_id, window.all_data);
 });
 
 //Remove without reflesh

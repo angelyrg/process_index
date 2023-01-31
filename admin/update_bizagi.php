@@ -6,6 +6,11 @@ $master = new Master();
 $id = $_POST['id'];
 $bizagi_folder = $_POST['bizagi_folder'];
 
-$master->update_json_data($id, null, null, $bizagi_folder, null);
+// $id = $_GET['id'];
+// $bizagi_folder = $_GET['bizagi_folder'];
+
+var_dump($master->update_bizagi_folder($id, $bizagi_folder));
 
 echo $bizagi_folder;
+
+//header("Location: index.php?id=".$id);

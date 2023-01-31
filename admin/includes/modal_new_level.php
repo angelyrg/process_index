@@ -8,7 +8,7 @@
       </div>
       <form id="member-form" action="process.store.php" method="POST">
         <div class="modal-body">
-          <input type="hidden" name="id" value="<?= isset($data->id) ? $data->id : '' ?>">
+          <input type="hidden" name="id" value="<?= isset($process['id']) ? $process['id'] : '' ?>">
 
           <div class="mb-3">
             <label for="level_name" class="form-label">Level name</label>

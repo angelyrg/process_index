@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Excel
 {
     public $data_file = "adminData/excel.json";
@@ -10,9 +9,9 @@ class Excel
     function get_excel_link()
     {
         $json = (array) json_decode(file_get_contents($this->data_file));
-        $data = [];
-        foreach ($json as $row) {
-            $data[$row->id] = $row;
+        $data = '';
+        foreach ($json as $k => $row) {
+            $data = $row;
         }
         return $data;
     }

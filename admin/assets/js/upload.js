@@ -29,14 +29,14 @@ picker.addEventListener("change", (e) => {
     sendFile(file, file.webkitRelativePath);
   }
 
-  //Send via AJAX to update
+  // Send via AJAX to update json file
   $.post( "update_bizagi.php", { id: process_id_bizagi, bizagi_folder: foldername } )
   .done(function( data ) {
-    window.location.reload();
+    console.log(data);
+    window.location.reload();    
   });
-
+  
 });
-
 
 // Function to send a file, call PHP backend
 sendFile = function (file, path) {

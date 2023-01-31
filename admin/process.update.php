@@ -45,4 +45,4 @@ if (isset($_POST['btn_upload_pdf'])) {
 
 
 
-header("Location: ./");
+header("Location: index.php?id=".$id);

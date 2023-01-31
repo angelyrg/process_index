@@ -8,7 +8,7 @@
       </div>
       <form id="member-form" action="process.insert.php" method="POST">
         <div class="modal-body">
-          <input type="hidden" name="parent_level_id" value="<?= ($id_item != 0) ? $id_item : '' ?>">
+          <input type="hidden" name="parent_level_id" value="<?= $id_item ?>">
           <div class="mb-3">
             <label for="new_level_name" class="form-label">Item name</label>
             <input type="text" class="form-control rounded" value="" id="new_level_name" name="new_level_name" required autocomplete="off" >

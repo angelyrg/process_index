@@ -8,7 +8,7 @@
       </div>
       <form action="process.update.php" method="POST" enctype="multipart/form-data">
         <div class="modal-body">
-          <input type="hidden" name="process_id" id="process_id" value="" required >
+          <input type="hidden" name="process_id" id="process_id" value="<?= $process["id"]; ?>" required >
           <div class="mb-3">
             <label for="pdf_file" class="form-label">Upload PDF file</label>
             <input type="file" class="form-control rounded-pill" id="pdf_file" name="pdf_file" required accept=".pdf">

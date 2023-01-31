@@ -8,10 +8,10 @@
       </div>
       <form action="process.update.php" method="POST" id="form_attach" enctype="multipart/form-data">
         <div class="modal-body">
-          <input type="hidden" name="process_id" id="process_id" value="" required >
+          <input type="hidden" name="process_id" id="process_id" value="<?= $process["id"]; ?>" required >
           <div class="mb-3">
-            <label for="pdf_file" class="form-label">Upload PDF file</label>
-            <input type="file" name="attach_file[]" id="attach_file" class="form-control rounded-pill" required multiple>
+            <label for="pdf_file" class="form-label">Upload Attached file</label>
+            <input type="file" name="attach_file[]" id="attach_file" class="form-control rounded-pill" required >
           </div>
         </div>
         <div class="modal-footer">

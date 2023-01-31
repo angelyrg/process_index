@@ -31,6 +31,37 @@ class Master
         return (object) [];   
     }
 
+    function get_sigle_data($id = '')
+    {
+        // Get current data and delete item
+        $data = file_get_contents($this->data_file);
+        $json_arr = json_decode($data, true);
+        $data_to_return = [];
+
+        // get and save data for delete
+        foreach ($json_arr as $i) {
+            if ($i['id'] === $id){                
+                $data_to_return = $i;
+                break;
+            }
+
+            foreach ($i['items'] as $j) {
+                if ( isset($j['id']) && $j['id'] === $id ){
+                    $data_to_return = $j;
+                    break 2;
+                }                
+
+                foreach ($j['items'] as $k ) {
+                    if (isset($k['id']) && $k['id'] === $id){
+                        $data_to_return = $k;
+                        break 3;
+                    }
+                }
+            }
+        }
+        return $data_to_return;
+    }
+
     /**
      * Insert data in the JSON (ONLY LEVEL 1)
      */
@@ -42,6 +73,7 @@ class Master
             "id" => "$id",
             "text" => $title,
             "bizagi_folder" => null,
+            "expanded" => false,
             "clickeable" => $clickeable,
             "items" => []
         ];
@@ -94,6 +126,33 @@ class Master
                 break;
 
             case 3:
+
+                foreach ($json_arr as $key => $i) {                            
+                    foreach ($i['items'] as $key2 => $j) {                        
+                        foreach ($j['items'] as $key3 => $k ) {
+                            if ( isset($k['id']) && $k['id'] === $id ){
+
+                                if (isset($title)){
+                                    $json_arr[$key]['items'][$key2]['items'][$key3]['text'] = $title;
+                                }
+                                if (isset($file_text)){
+                                    $json_arr[$key]['items'][$key2]['items'][$key3]['file_name'] = $file_text;
+                                    $json_arr[$key]['items'][$key2]['items'][$key3]['clickeable'] = true;
+                                }
+                                if(isset($bizagi_folder)){
+                                    $json_arr[$key]['items'][$key2]['items'][$key3]['bizagi_folder'] = $bizagi_folder;
+                                }
+                                $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                                $insert = file_put_contents($this->data_file, $json);
+
+                                break 3;
+
+                            }
+                        }
+                    }
+                }
+
+                /*
                 foreach($json_arr as $key => $value){
                     if( $value['id'] == $ids[0] ){
                         foreach($value['items'] as $k => $items){
@@ -117,7 +176,7 @@ class Master
                             }
                         }
                     }
-                }
+                }*/
                 break;
         }
 
@@ -215,6 +274,7 @@ class Master
         $data = file_get_contents($this->data_file);
         $json_arr = json_decode($data, true);
         $ids = explode("_", $id);
+        $insert = false;
 
         switch (count($ids)){
             
@@ -232,6 +292,7 @@ class Master
                             "id" => $child_id,
                             "text" => $title,
                             "bizagi_folder" => $bizagi_folder,
+                            "expanded" => false,
                             "clickeable" => $clickeable,
                             "items" => []
                         ];
@@ -258,6 +319,7 @@ class Master
                                     "text" => $title,
                                     "bizagi_folder" => $bizagi_folder,
                                     "clickeable" => true,
+                                    "expanded" => false,
                                     "items" => [],
                                     "attachment_files" => []
                                 ];
@@ -410,6 +472,94 @@ class Master
 
         return $insert;
 
+    }
+
+
+    function restore_expanded()
+    {
+        $data = file_get_contents($this->data_file);
+
+        $data = str_replace('"expanded" : true', '"expanded" : false', $data);
+        $data = str_replace('"expanded": true', '"expanded": false', $data);
+        $data = str_replace('"expanded" :true', '"expanded" :false', $data);
+        $data = str_replace('"expanded":true', '"expanded":false', $data);
+        
+        $json_arr = json_decode($data, true);
+        $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+        $insert = file_put_contents($this->data_file, $json);
+    }
+    
+
+    function make_expand($id = '')
+    {
+        $data = file_get_contents($this->data_file);
+        $json_arr = json_decode($data, true);
+        $insert = false;
+        $founded = false;
+
+        foreach ($json_arr as $key => $i) {
+            $json_arr[$key]['expanded']  = true;
+            $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+            $insert = file_put_contents($this->data_file, $json);
+
+            foreach ($i['items'] as $key2 => $j) {
+                // $json_arr[$key]['items'][$key2]['expanded']  = true;
+                // $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                // $insert = file_put_contents($this->data_file, $json);
+                
+                foreach ($j['items'] as $key3 => $k) {
+                    if ( $k['id'] === $id ){
+                        $json_arr[$key]['items'][$key2]['expanded']  = true;
+                        $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                        $insert = file_put_contents($this->data_file, $json);
+                        break 3;
+
+                    }else{
+                        $json_arr[$key]['items'][$key2]['expanded']  = false;
+                        $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                        $insert = file_put_contents($this->data_file, $json);
+                    }
+
+                }
+
+                $data = file_get_contents($this->data_file);
+
+                $data = str_replace('"expanded" : true', '"expanded" : false', $data);
+                $data = str_replace('"expanded": true', '"expanded": false', $data);
+                $data = str_replace('"expanded" :true', '"expanded" :false', $data);
+                $data = str_replace('"expanded":true', '"expanded":false', $data);
+                
+                $json_arr = json_decode($data, true);
+                $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                $insert = file_put_contents($this->data_file, $json);
+
+            }
+        }
+        
+    }
+
+
+    function update_bizagi_folder($id, $bizagi_folder)
+    {
+        $data = file_get_contents($this->data_file);
+        $json_arr = json_decode($data, true);
+        $insert = false;
+
+        foreach ($json_arr as $key => $i) {
+            foreach ($i['items'] as $key2 => $j) {
+                foreach ($j['items'] as $key3 => $k) {
+                    
+                    if ( isset($k['id']) &&  $k['id'] === $id){
+                        $json_arr[$key]['items'][$key2]['items'][$key3]['bizagi_folder'] = $bizagi_folder;
+                        $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                        $insert = file_put_contents($this->data_file, $json);
+                        break 3;
+                    }                    
+                }
+            }
+        }
+        return $insert;
+        
     }
     
 }

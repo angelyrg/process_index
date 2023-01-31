@@ -8,6 +8,6 @@ $title = $_POST['new_level_name'];
 
 $master->insert_child($id, $title, null);
 
-header("Location: ./");
+header("Location: index.php?id=".$id);
 
 ?>

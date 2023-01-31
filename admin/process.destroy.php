@@ -6,6 +6,6 @@ $id = $_GET['id'];
 
 var_dump($master->delete_data($id));
 
-header('location: ./');
+header('location: index.php?id='.$id);
 
 ?>

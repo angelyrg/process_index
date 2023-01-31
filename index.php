@@ -53,7 +53,7 @@ $process = $main->get_data($id);
         <div class="modal-body">
           <ul class="list-group" id="files_to_download">
             <?php if ( count($process['attachment_files']) == 0 ){ ?>
-              <label>There are not attached files yet</label>
+              <label>No attachments yet.</label>
               <?php }else{ ?>
             <?php foreach ($process['attachment_files'] as $key => $value) { ?>
               <li class="list-group-item d-flex justify-content-between align-items-center">
