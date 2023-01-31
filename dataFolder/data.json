@@ -38,7 +38,7 @@
                         "items": [],
                         "attachment_files": [],
                         "file_name": "Business_Process_Framework_eTOM_Poster_v21.5.pdf",
-                        "expanded": false
+                        "expanded": true
                     },
                     {
                         "id": "3_1_1",
@@ -46,7 +46,7 @@
                         "bizagi_folder": null,
                         "clickeable": true,
                         "attachment_files": [],
-                        "expanded": true
+                        "expanded": false
                     }
                 ]
             }

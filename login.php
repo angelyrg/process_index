@@ -10,6 +10,7 @@ if ($username == "admin" && $password=="admin"){
 
 }else{
     $_SESSION['error'] = "Username or password wrong.";
+    //$messages['error'] = "Username or password wrong.";
     header("Location: /");
 }
 

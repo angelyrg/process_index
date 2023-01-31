@@ -1,7 +1,6 @@
-<?php include("head.php"); ?>
+<?php 
 
-<?php
-
+include("head.php");
 require("Main.php");
 require("ExcelData.php");
 $main = new Main();
@@ -17,6 +16,5 @@ $link = $excel->get_link();
         <iframe src="<?= $link->spreadsheets_link ?>" class="col-12" id="excel_viewer"></iframe>
       </div>
     </div>
-  </div>
 
 <?php include("foot.php"); ?>

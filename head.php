@@ -59,7 +59,7 @@
         <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse shadow">
             <div class="demo-container ps-4">
                 <div class="d-grid my-2 pb-3 btn_process_list">
-                    <a href="#" class="btn btn-outline-light btn-sm rounded-pill" id="btn_process_list">Process List</a>
+                    <a href="home.php" class="btn btn-outline-light btn-sm rounded-pill" id="btn_process_list">Process List</a>
                 </div>
                 <div class="d-flex justify-content-end">
                     <a href="#" id="btn_expand_tree" class="btn btn-sm btn-outline-light">Expand all</a>

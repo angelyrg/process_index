@@ -3,6 +3,7 @@
 log.txt
 errors.log
 data_backup.json
+index_old.php
 
 # admin
 # dataFolder
