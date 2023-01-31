@@ -49,6 +49,7 @@
     border: 1px dashed rgb(167, 167, 167);
     border-radius: 25px;
     background-color: initial;
+    height: initial;
 }
 
 .dx-item.dx-treeview-item{    

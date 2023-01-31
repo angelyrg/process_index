@@ -5,6 +5,7 @@ $(document).ready(
     url: "dataFolder/data.json",
     success: function (data) {
       processes = data;
+      console.log(processes)
     },
   })
 );

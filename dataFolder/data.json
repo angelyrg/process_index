@@ -3,18 +3,21 @@
         "id": 1,
         "text": "DIVISION 1",
         "bizagi_folder": null,
+        "expanded" : true,
         "clickeable": false,
         "items": [
             {
                 "id": "1_1",
                 "text": "Area 1",
                 "bizagi_folder": null,
+                "expanded" : true,
                 "clickeable": false,
                 "items": [
                     {
                         "id": "1_1_1",
                         "text": "Process 1",
                         "bizagi_folder": null,
+                        "expanded" : true,
                         "clickeable": true,
                         "items": [],
                         "attachment_files": []
