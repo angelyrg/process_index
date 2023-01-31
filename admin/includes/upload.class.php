@@ -46,12 +46,6 @@ Class UploadFolder
         $file_type      = $files['type'];
         $file_ext       = strtolower(end(explode('.',$file_name)));
 
-        // Check for allowed extensions
-        if ($this->extensions != "*") {
-            if (!in_array($file_ext, $this->extensions)) {
-                $this->errors[] = "This file extension ($file_ext) is not allowed.";
-            }
-        }
 
         // If not error
         if (empty($this->errors)) {
@@ -68,11 +62,6 @@ Class UploadFolder
             // Create target dir if not exist    
             if (!is_dir($upload_dir)) mkdir($upload_dir, 0700, true);
 
-             
-            $log_string .= "BASE = ".$base."\n";
-            $log_string .= "ORIGINAL_PATH = ".$original_path."\n";
-            $log_string .= "UPLOAD_PATH  = ".$upload_path."\n"; 
-            
             $log_string .=  "Upload to $upload_path\n";
 
             $success = move_uploaded_file($file_tmp, $upload_path);

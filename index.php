@@ -43,14 +43,14 @@
 
 <body>
 
-<?php
-session_start();
-if (isset($_SESSION['error'])){
-  include("include/modal_error.php");
-  unset($_SESSION['error']);
-}
+  <?php
+  session_start();
+  if (isset($_SESSION['error'])) {
+    include("include/modal_error.php");
+    unset($_SESSION['error']);
+  }
 
-?>
+  ?>
 
   <nav class="navbar navbar-expand-lg my_navbar px-4">
     <div class="container-fluid">
@@ -59,18 +59,18 @@ if (isset($_SESSION['error'])){
       </a>
       <div class="d-flex align-items-center">
 
-      <?php
-      if(isset($_SESSION['user'])){
-        ?>
-        <a href="admin/" class="btn btn-outline-info">Admin</a>
         <?php
-      }else{
+        if (isset($_SESSION['user'])) {
         ?>
-        <button type="button" class="btn btn-info rounded-pill me-2" data-bs-toggle="modal" data-bs-target="#modal_login">
-          <i class="fa fa-user"></i> Login
-        </button>
+          <a href="admin/" class="btn btn-outline-info">Admin</a>
         <?php
-        include("include/modal_login.php"); 
+        } else {
+        ?>
+          <button type="button" class="btn btn-info rounded-pill me-2" data-bs-toggle="modal" data-bs-target="#modal_login">
+            <i class="fa fa-user"></i> Login
+          </button>
+        <?php
+          include("include/modal_login.php");
         }
         ?>
 
@@ -105,7 +105,7 @@ if (isset($_SESSION['error'])){
             <button type="button" class="btn btn-info rounded-pill me-2" data-bs-toggle="modal" data-bs-target="#modal_attachments"> <i class="fa-solid fa-list" aria-hidden="true"></i> Download attached files</button>
             <a href="" class="btn btn-info rounded-pill" target="_blank" id="link_bizagi_diagram"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Bizagi </a>
           </div>
-          
+
         </div>
         <div class="col-12 ">
           <iframe src="" width="100%" id="pdf_viewer" frameborder="0"></iframe>
@@ -141,9 +141,9 @@ if (isset($_SESSION['error'])){
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script>
-    // $(document).on("change", function() {
-    //   $(".biz-ex-navigation-left").remove()
-    // });
+    $('.modal').on('shown.bs.modal', function() {
+      $(this).find('[autofocus]').focus();
+    });
   </script>
   <script src="assets/js/main.js"></script>
 

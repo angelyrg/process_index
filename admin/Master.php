@@ -39,7 +39,7 @@ class Master
         $data = $this->get_all_data();
         $id = array_key_last($data) + 1;
         $data[$id] = (object) [
-            "id" => $id,
+            "id" => "$id",
             "text" => $title,
             "bizagi_folder" => null,
             "clickeable" => $clickeable,
@@ -136,58 +136,37 @@ class Master
     {
         $data = file_get_contents($this->data_file);
         $json_arr = json_decode($data, true);
-        $ids = explode("_", $id);
+        $insert = false;
 
-        switch (count($ids)){
-            case 1:
-                foreach($json_arr as $key => $value){
-                    if( $value['id'] == $id ){
-                        //unset($json_arr[$key]);
-                        array_splice($json_arr, $key, 1); 
-                        $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+
+        foreach($json_arr as $key => $i){
+            if( $i['id'] === $id ){
+                array_splice($json_arr, $key, 1); 
+                $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                $insert = file_put_contents($this->data_file, $json);
+                break;
+            }
+
+            foreach($i['items'] as $key2 => $j){
+                if ( isset($j['id']) &&  $j['id'] === $id ){
+                    array_splice($json_arr[$key]['items'], $key2, 1);
+                    $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                    $insert = file_put_contents($this->data_file, $json);
+                    break 2;
+                }
+
+                foreach($j['items'] as $key3 => $k){
+                    if ( isset($k['id']) &&  $k['id'] === $id){
+                        array_splice($json_arr[$key]['items'][$key2]['items'], $key3, 1); 
+                        $json = json_encode(($json_arr), JSON_PRETTY_PRINT);
                         $insert = file_put_contents($this->data_file, $json);
+                        break 3;
                     }
                 }
-                break;
-            case 2:
-                foreach($json_arr as $key => $value){
-                    if( $value['id'] == $ids[0] ){
-                        foreach($value['items'] as $k => $items){
-                            if ($items['id'] == $id){
-                                array_splice($json_arr[$key]['items'], $k, 1); 
-
-                                $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
-                                $insert = file_put_contents($this->data_file, $json);
-                            }
-                        }
-                    }
-                }
-                break;
-            case 3:
-                foreach($json_arr as $key => $value){
-                    if( $value['id'] == $ids[0] ){
-                        foreach($value['items'] as $k => $items){
-                            if ($items['id'] == $ids[0]."_".$ids[1]){
-                                foreach($items['items'] as $k3 => $item3){
-                                    if ($item3['id'] == $id){
-                                        array_splice($json_arr[$key]['items'][$k]['items'], $k3, 1); 
-
-                                        $json = json_encode(($json_arr), JSON_PRETTY_PRINT);
-                                        $insert = file_put_contents($this->data_file, $json);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                break;
+            }
         }
 
-        if ($insert) {
-            $_SESSION['success'] = "Data deleted successfully.";
-        } else {
-            $_SESSION['error'] = "Could not delete.";
-        }
+        return $insert;
 
     }
 
@@ -368,64 +347,69 @@ class Master
      */
     function update_ids($id_from, $id_to)
     {
-        $ids_to = explode("_", $id_to);
-        $data_to_move = [];
-        
+        // Get current data and delete item
         $data = file_get_contents($this->data_file);
         $json_arr = json_decode($data, true);
-        $ids = explode("_", $id_from);
+        $data_to_move = [];
+        $insert = false;
 
-        foreach($json_arr as $key => $value){
-            if( $value['id'] == $ids[0] ){
-                foreach($value['items'] as $k => $items){
-                    if ($items['id'] == $ids[0]."_".$ids[1]){
-                        foreach($items['items'] as $k3 => $item3){
-                            if ($item3['id'] == $id_from){                                
-                                $data_to_move =  $item3;
-                            }
-                        }
+        // get and save data for delete
+        foreach ($json_arr as $i) {
+            if ($i['id'] === $id_from){                
+                $data_to_move = $i;
+                break;
+            }
+
+            foreach ($i['items'] as $j) {
+                if ( isset($j['id']) && $j['id'] === $id_from ){
+                    $data_to_move = $j;
+                    break 2;
+                }                
+
+                foreach ($j['items'] as $k ) {
+                    if (isset($k['id']) && $k['id'] === $id_from){
+                        $data_to_move = $k;
+                        break 3;
                     }
                 }
             }
         }
+
         $this->delete_data($id_from);
-        
+
+        //Get new data
         $data = file_get_contents($this->data_file);
-        $json_arr = json_decode($data, true);
+        $json_arr = json_decode($data, true);        
+        // put data to the new place
+        foreach ($json_arr as $key => $i) {
+            if ( $i['id'] === $id_to){
+                array_push($json_arr[$key]['items'], $data_to_move);                                                            
+                $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                $insert = file_put_contents($this->data_file, $json);                
+                break;
+            }
 
-        foreach($json_arr as $key => $value){
-            if( $value['id'] == $ids_to[0] ){
-                foreach($value['items'] as $k => $value2)
-                    if ($value2['id'] == $ids_to[0]."_".$ids_to[1]){
+            foreach ($i['items'] as $key2 => $j) {
+                if ( isset($j['id']) && $j['id'] === $id_to ){
+                    array_push($json_arr[$key]['items'][$key2]['items'], $data_to_move);                                                            
+                    $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
+                    $insert = file_put_contents($this->data_file, $json);                
+                    break 2;
+                }
 
-                        // Set new id (INSERT NEW PROCESS)
-                        if ( isset($value2['items']) && count($value2['items']) > 0 ){
-                            $last_id = explode('_', end( $value2['items'] )['id']);
-                            $child_id = $id_to."_".(end($last_id) + 1);
-                        }else{
-                            $child_id = $id_to."_1";
-                        }
-                        
-                        $new_data =  [
-                            "id" => $child_id,
-                            "text" => $data_to_move["text"],
-                            "bizagi_folder" => $data_to_move["bizagi_folder"],
-                            "clickeable" => true,                            
-                            "attachment_files" => $data_to_move["attachment_files"]
-                        ];
-
-                        array_push($json_arr[$key]['items'][$k]['items'], $new_data);                                                            
+                foreach ($j['items'] as $key3 => $k ) {
+                    if ( isset($k['id']) && $k['id'] === $id_from ){
+                        array_push($json_arr[$key]['items'][$key2]['items'][$key3]['items'], $data_to_move);
                         $json = json_encode(array_values($json_arr), JSON_PRETTY_PRINT);
                         $insert = file_put_contents($this->data_file, $json);
+                        break 3;
+                    }
                 }
             }
         }
+
+        return $insert;
+
     }
-
-
-            
-
-
-
     
 }

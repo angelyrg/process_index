@@ -17,10 +17,10 @@ $(document).ready(function(){
   
       },
       failure: function (excel) {
-        alert(excel.responseText);
+        console.log(excel.responseText);
       },
       error: function (excel) {
-        alert(excel.responseText);
+        console.log(excel.responseText);
       },
     })
 
@@ -42,5 +42,5 @@ $("#btn_expand_tree").on("click", function(){
   $("#treeview").dxTreeView("expandAll");
 });
 
-//$("#treeview").dxTreeView("expandItem", nodeKey);
+// $("#treeview").dxTreeView("expandItem", nodeKey);
 // $("#treeViewContainer").dxTreeView("collapseItem", nodeKey);
