@@ -70,7 +70,8 @@
 }
     
 .dx-treeview-node-container-opened {
-    border-left: .5px dashed white;
+    border-left: .5px solid white;
+    border-radius: 8px;
 }
 
 [aria-level="1"] {

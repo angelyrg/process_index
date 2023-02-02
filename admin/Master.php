@@ -503,9 +503,9 @@ class Master
             $insert = file_put_contents($this->data_file, $json);
 
             foreach ($i['items'] as $key2 => $j) {
-                // $json_arr[$key]['items'][$key2]['expanded']  = true;
-                // $json = json_encode($json_arr, JSON_PRETTY_PRINT);
-                // $insert = file_put_contents($this->data_file, $json);
+                $json_arr[$key]['items'][$key2]['expanded']  = true;
+                $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                $insert = file_put_contents($this->data_file, $json);
                 
                 foreach ($j['items'] as $key3 => $k) {
                     if ( $k['id'] === $id ){
@@ -515,24 +515,22 @@ class Master
                         break 3;
 
                     }else{
-                        $json_arr[$key]['items'][$key2]['expanded']  = false;
+                        // $json_arr[$key]['items'][$key2]['expanded']  = false;
+                        // $json = json_encode($json_arr, JSON_PRETTY_PRINT);
+                        // $insert = file_put_contents($this->data_file, $json);
+
+                        $data = file_get_contents($this->data_file);
+                        $data = str_replace('"expanded" : true', '"expanded" : false', $data);
+                        $data = str_replace('"expanded": true', '"expanded": false', $data);
+                        $data = str_replace('"expanded" :true', '"expanded" :false', $data);
+                        $data = str_replace('"expanded":true', '"expanded":false', $data);
+                        
+                        $json_arr = json_decode($data, true);
                         $json = json_encode($json_arr, JSON_PRETTY_PRINT);
                         $insert = file_put_contents($this->data_file, $json);
+                        
                     }
-
                 }
-
-                $data = file_get_contents($this->data_file);
-
-                $data = str_replace('"expanded" : true', '"expanded" : false', $data);
-                $data = str_replace('"expanded": true', '"expanded": false', $data);
-                $data = str_replace('"expanded" :true', '"expanded" :false', $data);
-                $data = str_replace('"expanded":true', '"expanded":false', $data);
-                
-                $json_arr = json_decode($data, true);
-                $json = json_encode($json_arr, JSON_PRETTY_PRINT);
-                $insert = file_put_contents($this->data_file, $json);
-
             }
         }
         

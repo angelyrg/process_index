@@ -53,7 +53,7 @@
                     <spam>
                         <a href="reorganize.php" class="btn btn-outline-light btn-sm rounded-pill"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Reorganize</a>
                         <button type="button" class="btn btn-sm btn-outline-light rounded-pill" data-bs-toggle="modal" data-bs-target="#modal_new_level">
-                            <i class="fa-solid fa-plus" aria-hidden="true"></i> New level
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i> New Division
                         </button>
                     </spam>
                 </div>

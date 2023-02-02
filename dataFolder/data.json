@@ -38,7 +38,7 @@
         "id": "2",
         "text": "Technical Division",
         "bizagi_folder": null,
-        "expanded": true,
+        "expanded": false,
         "clickeable": false,
         "items": []
     },
@@ -46,7 +46,7 @@
         "id": "3",
         "text": "Infrastucture Division",
         "bizagi_folder": null,
-        "expanded": true,
+        "expanded": false,
         "clickeable": false,
         "items": []
     },
@@ -54,14 +54,14 @@
         "id": "4",
         "text": "Information Technology Division",
         "bizagi_folder": null,
-        "expanded": true,
+        "expanded": false,
         "clickeable": false,
         "items": [
             {
                 "id": "4_1",
-                "text": "Area name",
+                "text": "Processes",
                 "bizagi_folder": null,
-                "expanded": true,
+                "expanded": false,
                 "clickeable": false,
                 "items": [
                     {
@@ -81,7 +81,53 @@
                         "clickeable": true,
                         "expanded": false,
                         "items": [],
-                        "attachment_files": [],
+                        "attachment_files": [
+                            {
+                                "id": "at_4_1_2_1",
+                                "attach_name": "Appendix 01.1 Example process and description of the tasks.docx",
+                                "attach_file_name": "Appendix 01.1 Example process and description of the tasks.docx"
+                            },
+                            {
+                                "id": "at_4_1_2_2",
+                                "attach_name": "Template of document for submitting on VO_F.01. .docx",
+                                "attach_file_name": "Template of document for submitting on VO_F.01. .docx"
+                            },
+                            {
+                                "id": "at_4_1_2_3",
+                                "attach_name": "112022_Statement about approval to choose BPMN as the standard process at Viettel Peru.docx",
+                                "attach_file_name": "112022_Statement about approval to choose BPMN as the standard process at Viettel Peru.docx"
+                            },
+                            {
+                                "id": "at_4_1_2_4",
+                                "attach_name": "Appendix 01_Guideline for using BPMN notation to draw flowcharts.docx",
+                                "attach_file_name": "Appendix 01_Guideline for using BPMN notation to draw flowcharts.docx"
+                            },
+                            {
+                                "id": "at_4_1_2_5",
+                                "attach_name": "Appendix 02_Rules for checking flowcharts in BPMN.docx",
+                                "attach_file_name": "Appendix 02_Rules for checking flowcharts in BPMN.docx"
+                            },
+                            {
+                                "id": "at_4_1_2_6",
+                                "attach_name": "Appendix 03_Guideline for using Bizagi to draw the BPMN process.docx",
+                                "attach_file_name": "Appendix 03_Guideline for using Bizagi to draw the BPMN process.docx"
+                            },
+                            {
+                                "id": "at_4_1_2_7",
+                                "attach_name": "For example.xlsx",
+                                "attach_file_name": "For example.xlsx"
+                            },
+                            {
+                                "id": "at_4_1_2_8",
+                                "attach_name": "Checklist review and appraisal of Process Department.xlsx",
+                                "attach_file_name": "Checklist review and appraisal of Process Department.xlsx"
+                            },
+                            {
+                                "id": "at_4_1_2_9",
+                                "attach_name": "Slide Training Process - BPMN - Bizagi.pptx",
+                                "attach_file_name": "Slide Training Process - BPMN - Bizagi.pptx"
+                            }
+                        ],
                         "file_name": "012023_Directive about require to comply with regulations at Viettel Peru.pdf"
                     },
                     {
@@ -91,7 +137,38 @@
                         "clickeable": true,
                         "expanded": false,
                         "items": [],
-                        "attachment_files": [],
+                        "attachment_files": [
+                            {
+                                "id": "at_4_1_3_1",
+                                "attach_name": "Commitment to require Outsource partner keep information confidential for Viettel Peru_F02.docx",
+                                "attach_file_name": "Commitment to require Outsource partner keep information confidential for Viettel Peru_F02.docx"
+                            },
+                            {
+                                "id": "at_4_1_3_2",
+                                "attach_name": "Criteria for evaluating effectiveness of Outsource partner when finish contract_Appendix 02.docx",
+                                "attach_file_name": "Criteria for evaluating effectiveness of Outsource partner when finish contract_Appendix 02.docx"
+                            },
+                            {
+                                "id": "at_4_1_3_3",
+                                "attach_name": "ESTIMATE EFFORT OUTSOURCE_F.03 (Internal use only, Don't send Outsource Partner).xls",
+                                "attach_file_name": "ESTIMATE EFFORT OUTSOURCE_F.03 (Internal use only, Don't send Outsource Partner).xls"
+                            },
+                            {
+                                "id": "at_4_1_3_4",
+                                "attach_name": "Handover from Partner to Viettel Peru_F01.docx",
+                                "attach_file_name": "Handover from Partner to Viettel Peru_F01.docx"
+                            },
+                            {
+                                "id": "at_4_1_3_5",
+                                "attach_name": "Monthly plan_F.04.xlsx",
+                                "attach_file_name": "Monthly plan_F.04.xlsx"
+                            },
+                            {
+                                "id": "at_4_1_3_6",
+                                "attach_name": "Technical Criteria attached to Contract with Outsource Partner_Appendix 01.docx",
+                                "attach_file_name": "Technical Criteria attached to Contract with Outsource Partner_Appendix 01.docx"
+                            }
+                        ],
                         "file_name": "Process for Software outsource managment.pdf"
                     },
                     {
@@ -101,12 +178,38 @@
                         "clickeable": true,
                         "expanded": false,
                         "items": [],
-                        "attachment_files": [],
+                        "attachment_files": [
+                            {
+                                "id": "at_4_1_4_1",
+                                "attach_name": "Appendix 01_KPI completion RF time by effort .docx",
+                                "attach_file_name": "Appendix 01_KPI completion RF time by effort .docx"
+                            },
+                            {
+                                "id": "at_4_1_4_2",
+                                "attach_name": "C\u00e1c b\u01b0\u1edbc li\u00ean quan \u0111\u1ebfn \u0110VYC.xlsx",
+                                "attach_file_name": "C\u00e1c b\u01b0\u1edbc li\u00ean quan \u0111\u1ebfn \u0110VYC.xlsx"
+                            },
+                            {
+                                "id": "at_4_1_4_3",
+                                "attach_name": "F01_Require form.docx",
+                                "attach_file_name": "F01_Require form.docx"
+                            },
+                            {
+                                "id": "at_4_1_4_4",
+                                "attach_name": "F02_Acceptance test form.docx",
+                                "attach_file_name": "F02_Acceptance test form.docx"
+                            },
+                            {
+                                "id": "at_4_1_4_5",
+                                "attach_name": "F03_Inform to user form.docx",
+                                "attach_file_name": "F03_Inform to user form.docx"
+                            }
+                        ],
                         "file_name": "PROCESS.VTP.IT.01_Receiving and developing software requirements process in Viettel Peru (TRIAL).pdf"
                     },
                     {
                         "id": "4_1_5",
-                        "text": "RISK MANAGEMENT PROCESS FLOW",
+                        "text": "Risk Management Process Flow",
                         "bizagi_folder": "RISK MANAGEMENT PROCESS FLOW",
                         "clickeable": true,
                         "expanded": false,

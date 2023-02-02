@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg my_navbar px-4">
         <div class="container-fluid">
             <a class="navbar-brand m-0" href="#">
-                <img src="assets/img/bitel_logo.svg" alt="Bitel" class="img-fluid m-0 p-0" width="200px">
+                <img src="assets/img/bitel_logo.svg" alt="Bitel" class="img-fluid m-0 p-0" width="240px">
             </a>
             <div class="d-flex align-items-center">
                 <?php

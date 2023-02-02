@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
 require("Master.php");
 $master = new Master();
 
-if ( !isset($_GET['id']) || (strlen($_GET['id']) <= 1) ) {
+if ( !isset($_GET['id']) || (strlen($_GET['id']) <= 3) ) {
     header("Location: home.php");
 }
 
@@ -95,9 +95,13 @@ include("includes/modal_new_level.php");
                             </tr>
                         </thead>
                         <tbody id="attached_table">
-                        <?php foreach ($process['attachment_files'] as $key => $value) { ?>
+                        <?php 
+                        $i=0;
+                        foreach ($process['attachment_files'] as $key => $value) { 
+                            $i++;
+                            ?>
                             <tr>
-                                <td>1</td>
+                                <td><?=$i ?></td>
                                 <td><?=$value["attach_file_name"] ?></td>
                                 <td>
                                     <a href="attach.destroy.php?parent_id=<?=$process["id"] ?>&id=<?=$value["id"] ?>" class="btn btn-outline-danger btn-sm rounded-pill" onclick="if(confirm('Are you sure to delete this item?') === false) event.preventDefault();">
